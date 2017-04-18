@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <properties resource="config/jdbc.properties"/>
+
+  <context id="Mysql" targetRuntime="tk.mybatis.mapper.generator.TkMyBatis3SimpleImpl" defaultModelType="flat">
+    <property name="beginningDelimiter" value="`"/>
+    <property name="endingDelimiter" value="`"/>
+    
+    <plugin type="${mapper.plugin}">
+      <property name="mappers" value="${mapper.Mapper}"/>
+    </plugin>
+    <plugin type="org.mybatis.generator.plugins.SerializablePlugin" /> 
+    <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+	<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+    
+
+    <jdbcConnection driverClass="${db.driver}"
+                    connectionURL="${jdbc.url}"
+                    userId="${jdbc.user}"
+                    password="${jdbc.password}">
+    </jdbcConnection>
+
+    <javaModelGenerator targetPackage="${targetModelPackage}" targetProject="${targetJavaProject}"/>
+
+    <sqlMapGenerator targetPackage="${targetXMLPackage}"  targetProject="${targetResourcesProject}"/>
+
+    <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}" type="XMLMAPPER" />
+
+  <table tableName="b%" mapperName="{0}Dao">
+      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+    </table> 
+  <!--   <table tableName="b_session" mapperName="{0}Dao">
+      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+    </table> -->
+  </context>
+</generatorConfiguration>
