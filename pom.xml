@@ -12,11 +12,11 @@
 		<!-- MyBatis Generator -->
 		<!-- Java接口和实体类 -->
 		<targetJavaProject>${basedir}/src/main/java</targetJavaProject>
-		<targetMapperPackage>com.hiext.mms.automanager.dao</targetMapperPackage>
-		<targetModelPackage>com.hiext.mms.automanager.model</targetModelPackage>
+		<targetMapperPackage>com.hiext.mms.admin.dao</targetMapperPackage>
+		<targetModelPackage>com.hiext.mms.admin.model</targetModelPackage>
 		<!-- XML生成路径 -->
 		<targetResourcesProject>${basedir}/src/main/resources</targetResourcesProject>
-		<targetXMLPackage>mapper/automanager</targetXMLPackage>
+		<targetXMLPackage>mapper/admin</targetXMLPackage>
 		<!-- 编译jdk版本 -->
 		<jdk.version>1.7</jdk.version>
 		<!-- 依赖版本 -->
