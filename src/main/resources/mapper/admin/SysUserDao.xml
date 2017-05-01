@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hiext.mms.admin.dao.SysUserDao">
+  <resultMap id="BaseResultMap" type="com.hiext.mms.admin.model.SysUser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="Account" jdbcType="VARCHAR" property="account" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Sex" jdbcType="DECIMAL" property="sex" />
+    <result column="Password" jdbcType="VARCHAR" property="password" />
+    <result column="User_Type" jdbcType="DECIMAL" property="userType" />
+    <result column="Phone" jdbcType="VARCHAR" property="phone" />
+    <result column="Email" jdbcType="VARCHAR" property="email" />
+    <result column="Birth_Day" jdbcType="TIMESTAMP" property="birthDay" />
+    <result column="Dept_Id" jdbcType="DECIMAL" property="deptId" />
+    <result column="Position" jdbcType="VARCHAR" property="position" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="Staff_No" jdbcType="VARCHAR" property="staffNo" />
+    <result column="CreatorId" jdbcType="INTEGER" property="creatorid" />
+    <result column="CreatorName" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="DataLevel" jdbcType="INTEGER" property="datalevel" />
+    <result column="OrderNo" jdbcType="DOUBLE" property="orderno" />
+  </resultMap>
+</mapper>

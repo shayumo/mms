@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hiext.mms.admin.dao.SysUserRoleDao">
+  <resultMap id="BaseResultMap" type="com.hiext.mms.admin.model.SysUserRole">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="Id" jdbcType="DECIMAL" property="id" />
+    <result column="sys_User_Id" jdbcType="DECIMAL" property="sysUserId" />
+    <result column="sys_Role_Id" jdbcType="DECIMAL" property="sysRoleId" />
+    <result column="CreatorId" jdbcType="INTEGER" property="creatorid" />
+    <result column="CreatorName" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="DataLevel" jdbcType="INTEGER" property="datalevel" />
+    <result column="OrderNo" jdbcType="DOUBLE" property="orderno" />
+  </resultMap>
+</mapper>
