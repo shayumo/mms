@@ -1,10 +1,10 @@
-package com.ext.bp.${Base}.provider.impl;
+package com.hiext.mms.${Base}.provider.impl;
 
-import com.ext.bp.core.base.service.impl.BaseServiceImpl;
+import com.hiext.mms.core.base.service.impl.BaseServiceImpl;
 import org.springframework.stereotype.Service;
-import com.ext.bp.${Base}.model.${Begins}${BeanName};
-import com.ext.bp.${Base}.provider.${BeanName}Provider;
-import com.ext.bp.${Base}.dao.${Begins}${BeanName}Dao;
+import com.hiext.mms.${Base}.model.${Begins}${BeanName};
+import com.hiext.mms.${Base}.provider.${BeanName}Provider;
+import com.hiext.mms.${Base}.dao.${Begins}${BeanName}Dao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

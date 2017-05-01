@@ -1,6 +1,6 @@
-package com.ext.bp.${Base}.model.extend;
+package com.hiext.mms.${Base}.model.extend;
 
-import com.ext.bp.${Base}.model.${Begins}${BeanName};
+import com.hiext.mms.${Base}.model.${Begins}${BeanName};
 
 /**
  * 

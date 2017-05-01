@@ -1,19 +1,19 @@
-package com.ext.bp.${Base}.service.impl;
+package com.hiext.bp.${Base}.service.impl;
 
-import com.ext.bp.core.base.service.impl.BaseServiceImpl;
+import com.hiext.bp.core.base.service.impl.BaseServiceImpl;
 import org.springframework.stereotype.Service;
-import com.ext.bp.${Base}.model.${Begins}${BeanName};
-import com.ext.bp.${Base}.service.${BeanName}Service;
-import com.ext.bp.${Base}.dao.${Begins}${DetailName}Dao;
+import com.hiext.bp.${Base}.model.${Begins}${BeanName};
+import com.hiext.bp.${Base}.service.${BeanName}Service;
+import com.hiext.bp.${Base}.dao.${Begins}${DetailName}Dao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.ext.bp.${Base}.model.extend.${Begins}${BeanName}Extend;
-import com.ext.bp.${Base}.model.${Begins}${DetailName};
+import com.hiext.bp.${Base}.model.extend.${Begins}${BeanName}Extend;
+import com.hiext.bp.${Base}.model.${Begins}${DetailName};
 import java.util.List;
 import tk.mybatis.mapper.entity.Example;	
-import com.ext.bp.core.util.InstanceUtil;
+import com.hiext.bp.core.util.InstanceUtil;
 
 /**
  * 

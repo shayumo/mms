@@ -1,7 +1,7 @@
-package com.ext.bp.${Base}.provider;
+package com.hiext.mms.${Base}.provider;
 
-import com.ext.bp.core.base.service.BaseService;
-import com.ext.bp.${Base}.model.${Begins}${BeanName};
+import com.hiext.mms.core.base.service.BaseService;
+import com.hiext.mms.${Base}.model.${Begins}${BeanName};
 
 /**
  * 

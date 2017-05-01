@@ -1,15 +1,15 @@
-package com.ext.bp.${Base}.model.extend;
+package com.hiext.mms.${Base}.model.extend;
 
-import com.ext.bp.${Base}.model.${Begins}${BeanName};
+import com.hiext.mms.${Base}.model.${Begins}${BeanName};
 import java.util.List;
-import com.ext.bp.${Base}.model.${Begins}${DetailName};
+import com.hiext.mms.${Base}.model.${Begins}${DetailName};
 
 /**
  * 
  * <br>
  * <b>功能：</b>${BeanName}Extend<br>
  */
-public class B${BeanName}Extend extends ${Begins}${BeanName} {
+public class F${BeanName}Extend extends ${Begins}${BeanName} {
 
     private List<${Begins}${DetailName}> list;
 
