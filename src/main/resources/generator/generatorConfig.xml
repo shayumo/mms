@@ -30,7 +30,7 @@
 
     <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}" type="XMLMAPPER" />
 
-  <table tableName="b%" mapperName="{0}Dao">
+  <table tableName="Sys%" mapperName="{0}Dao">
       <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
     </table> 
   <!--   <table tableName="b_session" mapperName="{0}Dao">
