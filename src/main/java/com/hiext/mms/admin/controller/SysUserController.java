@@ -1,6 +1,7 @@
 package com.hiext.mms.admin.controller;
 
 import com.hiext.mms.admin.model.SysUser;
+import com.hiext.mms.admin.provider.SysUserProvider;
 import com.hiext.mms.admin.sevice.UserService;
 import com.hiext.mms.core.HttpCode;
 import com.hiext.mms.core.base.controller.BaseController;
@@ -30,6 +31,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SysUserController extends BaseController {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private SysUserProvider sysUserProvider;
 	
 	@ApiOperation(value = "所有员工", httpMethod = "POST")
 	@PostMapping(value = "/list")
@@ -44,6 +47,7 @@ public class SysUserController extends BaseController {
 	@RequiresRoles(value="系统管理员")
 	public Object add(ModelMap modelMap,@RequestBody SysUser user){
 		if(user !=null){
+			user.setUserType((short) 2);
 			user.setCreatorname(getCurrUser().getName());
 			user.setCreatorid(getCurrUser().getId());
 			userService.addUser(user);
@@ -60,5 +64,20 @@ public class SysUserController extends BaseController {
 			return setMap(HttpCode.OK);
 		}
 		return setSuccessMap();
+	}
+	
+	@ApiOperation(value = "查询员工", httpMethod = "POST")
+	@PostMapping(value = "/queryOne")
+	public Object query(ModelMap modelMap,@RequestBody Long id){
+		return setModelMap(modelMap, HttpCode.OK, sysUserProvider.selectByPrimaryKey(id));
+	}
+	
+	@ApiOperation(value = "删除员工", httpMethod = "POST")
+	@PostMapping(value = "/del")
+	public Object del(ModelMap modelMap,@RequestBody Long id){
+		SysUser sysUser = new SysUser();
+		sysUser.setDatalevel(1);
+		sysUserProvider.delete(sysUser);
+		return setModelMap(modelMap, HttpCode.OK, "删除成功");
 	}
 }

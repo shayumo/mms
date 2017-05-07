@@ -94,7 +94,7 @@ public class FMember implements Serializable {
      * 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
     @Column(name = "DataLevel")
-    private Boolean datalevel;
+    private int datalevel;
 
     private static final long serialVersionUID = 1L;
 
@@ -355,7 +355,7 @@ public class FMember implements Serializable {
      *
      * @return DataLevel - 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
-    public Boolean getDatalevel() {
+    public int getDatalevel() {
         return datalevel;
     }
 
@@ -364,7 +364,7 @@ public class FMember implements Serializable {
      *
      * @param datalevel 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
-    public void setDatalevel(Boolean datalevel) {
+    public void setDatalevel(int datalevel) {
         this.datalevel = datalevel;
     }
 
@@ -419,8 +419,7 @@ public class FMember implements Serializable {
             && (this.getfPointSum() == null ? other.getfPointSum() == null : this.getfPointSum().equals(other.getfPointSum()))
             && (this.getCreatorid() == null ? other.getCreatorid() == null : this.getCreatorid().equals(other.getCreatorid()))
             && (this.getCreatorname() == null ? other.getCreatorname() == null : this.getCreatorname().equals(other.getCreatorname()))
-            && (this.getCreatedate() == null ? other.getCreatedate() == null : this.getCreatedate().equals(other.getCreatedate()))
-            && (this.getDatalevel() == null ? other.getDatalevel() == null : this.getDatalevel().equals(other.getDatalevel()));
+            && (this.getCreatedate() == null ? other.getCreatedate() == null : this.getCreatedate().equals(other.getCreatedate()));
     }
 
     @Override
@@ -441,7 +440,6 @@ public class FMember implements Serializable {
         result = prime * result + ((getCreatorid() == null) ? 0 : getCreatorid().hashCode());
         result = prime * result + ((getCreatorname() == null) ? 0 : getCreatorname().hashCode());
         result = prime * result + ((getCreatedate() == null) ? 0 : getCreatedate().hashCode());
-        result = prime * result + ((getDatalevel() == null) ? 0 : getDatalevel().hashCode());
         return result;
     }
 }

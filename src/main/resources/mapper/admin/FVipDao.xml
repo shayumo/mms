@@ -13,6 +13,6 @@
     <result column="CreatorId" jdbcType="BIGINT" property="creatorid" />
     <result column="CreatorName" jdbcType="VARCHAR" property="creatorname" />
     <result column="CreateDate" jdbcType="TIMESTAMP" property="createdate" />
-    <result column="DataLevel" jdbcType="BIT" property="datalevel" />
+    <result column="DataLevel" jdbcType="INTEGER" property="datalevel" />
   </resultMap>
 </mapper>

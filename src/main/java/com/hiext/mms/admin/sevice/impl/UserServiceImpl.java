@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<SysUser> list(SysUser user) {
 		Example example = new Example(SysUser.class);
-		example.createCriteria().andCondition("datalevel<>-1 and User_Type=2");
+		example.createCriteria().andCondition("datalevel<>1 and User_Type=2");
 		List<SysUser> users=sysUserProvider.selectAllByExample(example);
 		return users;
 	}
