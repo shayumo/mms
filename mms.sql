@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-05-03 22:37:19
+Date: 2017-05-07 18:58:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -164,11 +164,12 @@ CREATE TABLE `f_vip` (
   `CreateDate` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建日期',
   `DataLevel` tinyint(1) unsigned zerofill DEFAULT '0' COMMENT '数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of f_vip
 -- ----------------------------
+INSERT INTO `f_vip` VALUES ('1', '高级会员', '测试', '50', '50', '1', '管理员', '2017-05-07 18:57:50', '0');
 
 -- ----------------------------
 -- Table structure for Sys_Menu
@@ -189,11 +190,32 @@ CREATE TABLE `Sys_Menu` (
   `DataLevel` tinyint(1) unsigned zerofill DEFAULT '0' COMMENT '数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿',
   `OrderNo` double DEFAULT NULL COMMENT '排序号',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='菜单 菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='菜单 菜单表';
 
 -- ----------------------------
 -- Records of Sys_Menu
 -- ----------------------------
+INSERT INTO `Sys_Menu` VALUES ('1', '会员管理', '1', '0', null, '', null, '会员管理首页', '1', '管理员', '2017-05-07 15:18:49', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('2', '消费收银', '1', '0', null, '', null, null, '1', '管理员', '2017-05-07 15:18:52', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('3', '礼品管理', '1', '0', null, '', null, '商品管理', '1', '管理员', '2017-05-07 15:18:55', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('4', '统计报表 ', '1', '0', null, '', null, '报表', '1', '管理员', '2017-05-07 15:18:57', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('5', '系统设置', '1', '0', null, '', null, '系统设置', '1', '管理员', '2017-05-07 15:19:01', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('6', '会员列表', '1', '1', null, null, null, null, '1', '管理员', '2017-05-07 15:20:19', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('7', '添加新会员', '1', '1', null, null, null, null, '1', '管理员', '2017-05-07 15:21:17', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('8', '会员消费', '1', '2', null, null, null, null, '1', '管理员', '2017-05-07 15:26:39', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('9', '消费记录', '1', '2', null, null, null, null, '1', '管理员', '2017-05-07 15:26:39', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('10', '积分记录', '1', '2', null, null, null, null, '1', '管理员', '2017-05-07 15:26:40', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('11', '会员充值', '1', '2', null, null, null, null, '1', '管理员', '2017-05-07 15:28:02', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('12', '礼品设置', '1', '3', null, null, null, null, '1', '管理员', '2017-05-07 15:29:03', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('13', '积分兑换礼品', '1', '3', null, null, null, null, '1', '管理员', '2017-05-07 15:29:06', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('14', '兑换历史', '1', '3', null, null, null, null, '1', '管理员', '2017-05-07 15:29:11', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('15', '会员统计', '1', '4', null, null, null, null, '1', '管理员', '2017-05-07 15:29:52', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('16', '消费统计', '1', '4', null, null, null, null, '1', '管理员', '2017-05-07 15:29:57', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('17', '礼品统计', '1', '4', null, null, null, null, '1', '管理员', '2017-05-07 15:30:27', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('18', '员工统计', '1', '4', null, null, null, null, '1', '管理员', '2017-05-07 15:30:30', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('19', '礼品分类设置', '1', '5', null, null, null, '礼品分离设置', '1', '管理员', '2017-05-07 15:31:22', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('20', '会员等级设置', '1', '5', null, null, null, '会员等级参数设置', '1', '管理员', '2017-05-07 15:32:18', '0', null);
+INSERT INTO `Sys_Menu` VALUES ('21', '员工管理', '1', '5', null, null, null, null, '1', '管理员', '2017-05-07 15:32:44', '0', null);
 
 -- ----------------------------
 -- Table structure for Sys_Role
@@ -234,11 +256,65 @@ CREATE TABLE `Sys_Role_menu` (
   `DataLevel` tinyint(1) unsigned zerofill DEFAULT '0' COMMENT '数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿',
   `OrderNo` int(11) DEFAULT NULL COMMENT '排序号',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色授权 角色授权表';
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8 COMMENT='角色授权 角色授权表';
 
 -- ----------------------------
 -- Records of Sys_Role_menu
 -- ----------------------------
+INSERT INTO `Sys_Role_menu` VALUES ('1', '1', '1', null, '1', '管理员', '2017-05-04 21:51:26', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('2', '1', '2', null, '1', '管理员', '2017-05-07 15:57:18', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('3', '1', '3', null, '1', '管理员', '2017-05-07 15:57:18', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('4', '1', '4', null, '1', '管理员', '2017-05-07 15:57:18', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('5', '1', '5', null, '1', '管理员', '2017-05-07 15:57:18', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('6', '1', '6', null, '1', '管理员', '2017-05-07 15:57:18', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('7', '1', '7', null, '1', '管理员', '2017-05-07 15:57:18', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('8', '1', '8', null, '1', '管理员', '2017-05-07 15:57:18', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('9', '1', '9', null, '1', '管理员', '2017-05-07 15:57:20', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('10', '1', '1', null, '1', '管理员', '2017-05-07 15:53:41', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('11', '1', '11', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('12', '1', '12', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('13', '1', '13', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('14', '1', '14', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('15', '1', '15', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('16', '1', '16', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('17', '1', '17', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('18', '1', '18', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('19', '1', '19', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('20', '1', '20', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('21', '1', '21', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('22', '2', '1', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('23', '2', '2', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('24', '2', '3', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('25', '2', '4', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('26', '2', '5', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('27', '2', '6', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('28', '2', '7', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('29', '2', '8', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('30', '2', '9', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('31', '2', '1', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('32', '2', '11', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('33', '2', '12', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('34', '2', '13', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('35', '2', '14', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('36', '2', '15', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('37', '2', '16', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('38', '2', '17', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('39', '2', '18', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('40', '2', '19', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('41', '2', '20', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('42', '2', '21', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('43', '3', '1', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('44', '3', '2', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('45', '3', '3', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('46', '3', '6', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('47', '3', '7', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('48', '3', '8', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('49', '3', '9', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('50', '3', '10', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('51', '3', '11', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('52', '3', '12', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('53', '3', '13', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
+INSERT INTO `Sys_Role_menu` VALUES ('54', '3', '14', null, '1', '管理员', '2017-05-07 15:57:40', '0', null);
 
 -- ----------------------------
 -- Table structure for Sys_User
@@ -263,12 +339,14 @@ CREATE TABLE `Sys_User` (
   `DataLevel` tinyint(1) unsigned zerofill DEFAULT '0' COMMENT '数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿',
   `OrderNo` int(11) DEFAULT NULL COMMENT '排序号',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户表 后台用户表，管理员与员工';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='用户表 后台用户表，管理员与员工';
 
 -- ----------------------------
 -- Records of Sys_User
 -- ----------------------------
-INSERT INTO `Sys_User` VALUES ('1', 'admin', '管理员', '1', 'admin', '1', '13800000000', null, '2017-05-02 12:46:35', '老板', '上海', '001', '1', '管理员', '2017-05-01 12:46:59', '1', '1');
+INSERT INTO `Sys_User` VALUES ('1', 'admin', '管理员', '1', 'admin', '1', '13800000000', null, '2017-05-02 12:46:35', '老板', '上海', '001', '1', '管理员', '2017-05-07 18:23:41', '0', '1');
+INSERT INTO `Sys_User` VALUES ('2', 'angy.zhang', '妮子', '1', 'admin', '2', null, null, '2017-05-07 10:48:04', '员工', '上海', '002', '1', '管理员', '2017-05-07 10:49:09', '0', '2');
+INSERT INTO `Sys_User` VALUES ('5', '张三', '张三', '1', 'admin', '2', '138000000000', null, '2017-05-07 11:35:53', '员工', '上海', '003', '1', '管理员', '2017-05-07 18:58:20', '0', null);
 
 -- ----------------------------
 -- Table structure for Sys_User_Role
@@ -284,7 +362,7 @@ CREATE TABLE `Sys_User_Role` (
   `DataLevel` tinyint(1) unsigned zerofill DEFAULT '0' COMMENT '数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿',
   `OrderNo` double DEFAULT NULL COMMENT '排序号',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='用户授权角色 用户授权角色';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='用户授权角色 用户授权角色';
 
 -- ----------------------------
 -- Records of Sys_User_Role
@@ -292,3 +370,5 @@ CREATE TABLE `Sys_User_Role` (
 INSERT INTO `Sys_User_Role` VALUES ('1', '1', '1', '1', '管理员', '2017-05-01 12:53:47', '0', '1');
 INSERT INTO `Sys_User_Role` VALUES ('2', '1', '2', '1', '管理员', '2017-05-01 12:54:49', '0', '2');
 INSERT INTO `Sys_User_Role` VALUES ('3', '1', '3', '1', '管理员', '2017-05-01 12:55:10', '0', '3');
+INSERT INTO `Sys_User_Role` VALUES ('4', '2', '3', '1', '管理员', '2017-05-07 12:02:08', '0', '4');
+INSERT INTO `Sys_User_Role` VALUES ('7', '5', '3', '1', '管理员', '2017-05-07 18:58:15', '0', '5');
