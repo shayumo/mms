@@ -33,6 +33,13 @@ public interface CurdService<T> {
 	 * @return
 	 */
 	int insert(T record);
+	
+	/**
+	 * 新增 属性不为空的
+	 * @param record
+	 * @return
+	 */
+	int insertSelective(T record);
 
 	/**
 	 * 根据ID查找数据

@@ -21,7 +21,7 @@ import com.hiext.mms.core.util.DataUtil;
  * @param <T>
  *
  *
- * @remark 对BaseService接口的通用实现,完成接口的实现过程,使用者继承该实现类即可完成通用功能 修改内容:新增緩存的查詢
+ * @remark 对BaseService接口的通用实现,完成接口的实现过程,使用者继承该实现类即可完成通用功能 
  */
 public class BaseServiceImpl<M extends BaseDao<T>, T> implements BaseService<T> {
 
@@ -38,6 +38,11 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> implements BaseService<T> 
 	@Transactional
 	public int insert(T record) {
 		return dao.insertUseGeneratedKeys(record);
+	}
+	
+	@Transactional
+	public int insertSelective(T record) {
+		return dao.insertSelective(record);
 	}
 
 	public T selectByPrimaryKey(Long id) {

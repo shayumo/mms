@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.hiext.mms.admin.model.SysUser;
 import com.hiext.mms.core.Constants;
 import com.hiext.mms.core.HttpCode;
 import com.hiext.mms.core.exception.BaseException;
 import com.hiext.mms.core.exception.IllegalParameterException;
+import com.hiext.mms.core.util.WebUtil;
 
 
 /**
@@ -28,6 +30,10 @@ import com.hiext.mms.core.exception.IllegalParameterException;
  */
 public abstract class BaseController {
 	protected final Logger logger = LogManager.getLogger(this.getClass());
+	/** 获取当前用户 */
+	protected SysUser getCurrUser() {
+		return (SysUser) WebUtil.getCurrentUser();
+	}
 
 	/** 设置成功响应代码 */
 	protected ResponseEntity<ModelMap> setSuccessModelMap(ModelMap modelMap) {

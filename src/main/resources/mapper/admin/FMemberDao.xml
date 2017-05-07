@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hiext.mms.admin.dao.FMemberDao">
+  <resultMap id="BaseResultMap" type="com.hiext.mms.admin.model.FMember">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="Sex" jdbcType="BIT" property="sex" />
+    <result column="Tel" jdbcType="VARCHAR" property="tel" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="card_NO" jdbcType="VARCHAR" property="cardNo" />
+    <result column="card_date" jdbcType="TIMESTAMP" property="cardDate" />
+    <result column="card_monery" jdbcType="DOUBLE" property="cardMonery" />
+    <result column="f_vip_id" jdbcType="BIGINT" property="fVipId" />
+    <result column="f_vip_name" jdbcType="VARCHAR" property="fVipName" />
+    <result column="f_point_sum" jdbcType="DOUBLE" property="fPointSum" />
+    <result column="CreatorId" jdbcType="BIGINT" property="creatorid" />
+    <result column="CreatorName" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="DataLevel" jdbcType="BIT" property="datalevel" />
+  </resultMap>
+</mapper>
