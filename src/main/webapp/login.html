@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+
+		<script type="text/javascript" src="easyui/jquery.min.js"></script>
+		<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+		<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css" />
+		<!--先引入Bootstrap的css文件，后引入自定义css文件-->
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			* {
+				margin: 0 auto;
+				vertical-align: middle;
+			}
+			
+			body {
+				background: url(img/bg.jpg);
+				width: 100%;
+			}
+			
+			#form-div {
+				margin-top: 20%;
+			}
+			
+			select{
+				width: 323px;
+				height: 35px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4" id="form-div">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label for="dropdownMenu1" class="col-sm-2 control-label">Role</label>
+						<div class="col-sm-10">							
+								<select name="">
+									<option value="">请选择登录身份</option>
+									<option value="">员工</option>
+									<option value="">管理员</option>
+								</select>
+								
+								
+								<!--<button type="button" class="btn btn-default dropdown-toggle form-control" id="mybutton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									请选择登录身份
+                    <span class="caret"></span>
+                </button>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="#">员工</a>
+									</li>
+									<li>
+										<a href="#">管理员</a>
+									</li>
+								</ul>-->
+							
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="inputEmail3" placeholder="Username">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<div class="checkbox">
+								<label><input type="checkbox"> Remember me</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">					
+								<button type="submit" class="btn btn-default">Sign in</button>							
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4">
+				
+			</div>
+
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		$(function() {
+			$("#mybutton").click(function() {
+//				$(".dropdown-toggle").dropdown('toggle');
+				$(".dropdown").toggleClass("open");
+
+			})
+
+		})
+	</script>
+
+</html>
