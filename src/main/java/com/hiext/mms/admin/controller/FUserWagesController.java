@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 @RequestMapping("/fuserwages")
 public class FUserWagesController extends BaseController {
- 
+
 }
