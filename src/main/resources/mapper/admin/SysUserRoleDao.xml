@@ -5,13 +5,13 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="Id" jdbcType="DECIMAL" property="id" />
-    <result column="sys_User_Id" jdbcType="DECIMAL" property="sysUserId" />
-    <result column="sys_Role_Id" jdbcType="DECIMAL" property="sysRoleId" />
-    <result column="CreatorId" jdbcType="INTEGER" property="creatorid" />
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="sys_User_Id" jdbcType="BIGINT" property="sysUserId" />
+    <result column="sys_Role_Id" jdbcType="BIGINT" property="sysRoleId" />
+    <result column="CreatorId" jdbcType="BIGINT" property="creatorid" />
     <result column="CreatorName" jdbcType="VARCHAR" property="creatorname" />
     <result column="CreateDate" jdbcType="TIMESTAMP" property="createdate" />
-    <result column="DataLevel" jdbcType="INTEGER" property="datalevel" />
+    <result column="DataLevel" jdbcType="BIT" property="datalevel" />
     <result column="OrderNo" jdbcType="DOUBLE" property="orderno" />
   </resultMap>
 </mapper>

@@ -1,7 +1,6 @@
 package com.hiext.mms.admin.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -10,19 +9,19 @@ public class SysRoleMenu implements Serializable {
     @Id
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigDecimal id;
+    private Long id;
 
     /**
      * 角色ID
      */
     @Column(name = "sys_Role_Id")
-    private BigDecimal sysRoleId;
+    private Long sysRoleId;
 
     /**
      * 菜单ID
      */
     @Column(name = "sys_Menu_Id")
-    private BigDecimal sysMenuId;
+    private Long sysMenuId;
 
     @Column(name = "Remark")
     private String remark;
@@ -31,7 +30,7 @@ public class SysRoleMenu implements Serializable {
      * 创建人编号
      */
     @Column(name = "CreatorId")
-    private Integer creatorid;
+    private Long creatorid;
 
     /**
      * 创建人姓名
@@ -49,27 +48,27 @@ public class SysRoleMenu implements Serializable {
      * 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
     @Column(name = "DataLevel")
-    private Byte datalevel;
+    private Boolean datalevel;
 
     /**
      * 排序号
      */
     @Column(name = "OrderNo")
-    private Double orderno;
+    private Integer orderno;
 
     private static final long serialVersionUID = 1L;
 
     /**
      * @return Id
      */
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id
      */
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -78,7 +77,7 @@ public class SysRoleMenu implements Serializable {
      *
      * @return sys_Role_Id - 角色ID
      */
-    public BigDecimal getSysRoleId() {
+    public Long getSysRoleId() {
         return sysRoleId;
     }
 
@@ -87,7 +86,7 @@ public class SysRoleMenu implements Serializable {
      *
      * @param sysRoleId 角色ID
      */
-    public void setSysRoleId(BigDecimal sysRoleId) {
+    public void setSysRoleId(Long sysRoleId) {
         this.sysRoleId = sysRoleId;
     }
 
@@ -96,7 +95,7 @@ public class SysRoleMenu implements Serializable {
      *
      * @return sys_Menu_Id - 菜单ID
      */
-    public BigDecimal getSysMenuId() {
+    public Long getSysMenuId() {
         return sysMenuId;
     }
 
@@ -105,7 +104,7 @@ public class SysRoleMenu implements Serializable {
      *
      * @param sysMenuId 菜单ID
      */
-    public void setSysMenuId(BigDecimal sysMenuId) {
+    public void setSysMenuId(Long sysMenuId) {
         this.sysMenuId = sysMenuId;
     }
 
@@ -128,7 +127,7 @@ public class SysRoleMenu implements Serializable {
      *
      * @return CreatorId - 创建人编号
      */
-    public Integer getCreatorid() {
+    public Long getCreatorid() {
         return creatorid;
     }
 
@@ -137,7 +136,7 @@ public class SysRoleMenu implements Serializable {
      *
      * @param creatorid 创建人编号
      */
-    public void setCreatorid(Integer creatorid) {
+    public void setCreatorid(Long creatorid) {
         this.creatorid = creatorid;
     }
 
@@ -182,7 +181,7 @@ public class SysRoleMenu implements Serializable {
      *
      * @return DataLevel - 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
-    public Byte getDatalevel() {
+    public Boolean getDatalevel() {
         return datalevel;
     }
 
@@ -191,7 +190,7 @@ public class SysRoleMenu implements Serializable {
      *
      * @param datalevel 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
-    public void setDatalevel(Byte datalevel) {
+    public void setDatalevel(Boolean datalevel) {
         this.datalevel = datalevel;
     }
 
@@ -200,7 +199,7 @@ public class SysRoleMenu implements Serializable {
      *
      * @return OrderNo - 排序号
      */
-    public Double getOrderno() {
+    public Integer getOrderno() {
         return orderno;
     }
 
@@ -209,7 +208,7 @@ public class SysRoleMenu implements Serializable {
      *
      * @param orderno 排序号
      */
-    public void setOrderno(Double orderno) {
+    public void setOrderno(Integer orderno) {
         this.orderno = orderno;
     }
 

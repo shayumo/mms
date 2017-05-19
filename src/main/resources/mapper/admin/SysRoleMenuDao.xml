@@ -5,14 +5,14 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="Id" jdbcType="DECIMAL" property="id" />
-    <result column="sys_Role_Id" jdbcType="DECIMAL" property="sysRoleId" />
-    <result column="sys_Menu_Id" jdbcType="DECIMAL" property="sysMenuId" />
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="sys_Role_Id" jdbcType="BIGINT" property="sysRoleId" />
+    <result column="sys_Menu_Id" jdbcType="BIGINT" property="sysMenuId" />
     <result column="Remark" jdbcType="VARCHAR" property="remark" />
-    <result column="CreatorId" jdbcType="INTEGER" property="creatorid" />
+    <result column="CreatorId" jdbcType="BIGINT" property="creatorid" />
     <result column="CreatorName" jdbcType="VARCHAR" property="creatorname" />
     <result column="CreateDate" jdbcType="TIMESTAMP" property="createdate" />
-    <result column="DataLevel" jdbcType="TINYINT" property="datalevel" />
-    <result column="OrderNo" jdbcType="DOUBLE" property="orderno" />
+    <result column="DataLevel" jdbcType="BIT" property="datalevel" />
+    <result column="OrderNo" jdbcType="INTEGER" property="orderno" />
   </resultMap>
 </mapper>

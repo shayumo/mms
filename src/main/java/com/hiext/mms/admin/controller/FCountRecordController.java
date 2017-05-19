@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * 
  * <br>
- * <b>功能：</b>SysUserRoleController<br>
+ * <b>功能：</b>FCountRecordController<br>
  */
 @RestController
-@RequestMapping("/sysuserrole")
-public class SysUserRoleController extends BaseController {
+@RequestMapping("/fcountrecord")
+public class FCountRecordController extends BaseController {
  
 }

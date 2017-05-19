@@ -12,7 +12,7 @@ public class SysRole implements Serializable {
     @Id
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     /**
      * 角色名称
@@ -24,7 +24,7 @@ public class SysRole implements Serializable {
      * 角色类型 角色类型(1:业务角色;2:管理角色;3:系统内置角色)
      */
     @Column(name = "Role_Type")
-    private Short roleType;
+    private Boolean roleType;
 
     /**
      * 备注
@@ -36,7 +36,7 @@ public class SysRole implements Serializable {
      * 创建人编号
      */
     @Column(name = "CreatorId")
-    private Integer creatorid;
+    private Long creatorid;
 
     /**
      * 创建人姓名
@@ -54,13 +54,13 @@ public class SysRole implements Serializable {
      * 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
     @Column(name = "DataLevel")
-    private Byte datalevel;
+    private Boolean datalevel;
 
     /**
      * 排序号
      */
     @Column(name = "OrderNo")
-    private Double orderno;
+    private Integer orderno;
 
     private static final long serialVersionUID = 1L;
 
@@ -69,7 +69,7 @@ public class SysRole implements Serializable {
      *
      * @return Id - 角色编号
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -78,7 +78,7 @@ public class SysRole implements Serializable {
      *
      * @param id 角色编号
      */
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -105,7 +105,7 @@ public class SysRole implements Serializable {
      *
      * @return Role_Type - 角色类型 角色类型(1:业务角色;2:管理角色;3:系统内置角色)
      */
-    public Short getRoleType() {
+    public Boolean getRoleType() {
         return roleType;
     }
 
@@ -114,7 +114,7 @@ public class SysRole implements Serializable {
      *
      * @param roleType 角色类型 角色类型(1:业务角色;2:管理角色;3:系统内置角色)
      */
-    public void setRoleType(Short roleType) {
+    public void setRoleType(Boolean roleType) {
         this.roleType = roleType;
     }
 
@@ -141,7 +141,7 @@ public class SysRole implements Serializable {
      *
      * @return CreatorId - 创建人编号
      */
-    public Integer getCreatorid() {
+    public Long getCreatorid() {
         return creatorid;
     }
 
@@ -150,7 +150,7 @@ public class SysRole implements Serializable {
      *
      * @param creatorid 创建人编号
      */
-    public void setCreatorid(Integer creatorid) {
+    public void setCreatorid(Long creatorid) {
         this.creatorid = creatorid;
     }
 
@@ -195,7 +195,7 @@ public class SysRole implements Serializable {
      *
      * @return DataLevel - 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
-    public Byte getDatalevel() {
+    public Boolean getDatalevel() {
         return datalevel;
     }
 
@@ -204,7 +204,7 @@ public class SysRole implements Serializable {
      *
      * @param datalevel 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
-    public void setDatalevel(Byte datalevel) {
+    public void setDatalevel(Boolean datalevel) {
         this.datalevel = datalevel;
     }
 
@@ -213,7 +213,7 @@ public class SysRole implements Serializable {
      *
      * @return OrderNo - 排序号
      */
-    public Double getOrderno() {
+    public Integer getOrderno() {
         return orderno;
     }
 
@@ -222,7 +222,7 @@ public class SysRole implements Serializable {
      *
      * @param orderno 排序号
      */
-    public void setOrderno(Double orderno) {
+    public void setOrderno(Integer orderno) {
         this.orderno = orderno;
     }
 

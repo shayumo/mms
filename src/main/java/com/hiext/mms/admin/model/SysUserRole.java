@@ -1,7 +1,6 @@
 package com.hiext.mms.admin.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -13,25 +12,25 @@ public class SysUserRole implements Serializable {
     @Id
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigDecimal id;
+    private Long id;
 
     /**
      * 用户ID
      */
     @Column(name = "sys_User_Id")
-    private BigDecimal sysUserId;
+    private Long sysUserId;
 
     /**
      * 角色ID
      */
     @Column(name = "sys_Role_Id")
-    private BigDecimal sysRoleId;
+    private Long sysRoleId;
 
     /**
      * 创建人编号
      */
     @Column(name = "CreatorId")
-    private Integer creatorid;
+    private Long creatorid;
 
     /**
      * 创建人姓名
@@ -49,7 +48,7 @@ public class SysUserRole implements Serializable {
      * 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
     @Column(name = "DataLevel")
-    private Integer datalevel;
+    private Boolean datalevel;
 
     /**
      * 排序号
@@ -64,7 +63,7 @@ public class SysUserRole implements Serializable {
      *
      * @return Id - 编号
      */
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
@@ -73,7 +72,7 @@ public class SysUserRole implements Serializable {
      *
      * @param id 编号
      */
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -82,7 +81,7 @@ public class SysUserRole implements Serializable {
      *
      * @return sys_User_Id - 用户ID
      */
-    public BigDecimal getSysUserId() {
+    public Long getSysUserId() {
         return sysUserId;
     }
 
@@ -91,7 +90,7 @@ public class SysUserRole implements Serializable {
      *
      * @param sysUserId 用户ID
      */
-    public void setSysUserId(BigDecimal sysUserId) {
+    public void setSysUserId(Long sysUserId) {
         this.sysUserId = sysUserId;
     }
 
@@ -100,7 +99,7 @@ public class SysUserRole implements Serializable {
      *
      * @return sys_Role_Id - 角色ID
      */
-    public BigDecimal getSysRoleId() {
+    public Long getSysRoleId() {
         return sysRoleId;
     }
 
@@ -109,7 +108,7 @@ public class SysUserRole implements Serializable {
      *
      * @param sysRoleId 角色ID
      */
-    public void setSysRoleId(BigDecimal sysRoleId) {
+    public void setSysRoleId(Long sysRoleId) {
         this.sysRoleId = sysRoleId;
     }
 
@@ -118,7 +117,7 @@ public class SysUserRole implements Serializable {
      *
      * @return CreatorId - 创建人编号
      */
-    public Integer getCreatorid() {
+    public Long getCreatorid() {
         return creatorid;
     }
 
@@ -127,7 +126,7 @@ public class SysUserRole implements Serializable {
      *
      * @param creatorid 创建人编号
      */
-    public void setCreatorid(Integer creatorid) {
+    public void setCreatorid(Long creatorid) {
         this.creatorid = creatorid;
     }
 
@@ -172,7 +171,7 @@ public class SysUserRole implements Serializable {
      *
      * @return DataLevel - 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
-    public Integer getDatalevel() {
+    public Boolean getDatalevel() {
         return datalevel;
     }
 
@@ -181,7 +180,7 @@ public class SysUserRole implements Serializable {
      *
      * @param datalevel 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
-    public void setDatalevel(Integer datalevel) {
+    public void setDatalevel(Boolean datalevel) {
         this.datalevel = datalevel;
     }
 

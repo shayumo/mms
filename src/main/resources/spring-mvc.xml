@@ -37,15 +37,6 @@
 		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
 		<property name="securityManager" ref="securityManager" />
 	</bean>
-
-	<!-- 直接定义拦截所有请求 -->
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/**" />
-			<bean class="com.hiext.mms.core.interceptor.CrossDomainInterceptor"></bean>
-		</mvc:interceptor>
-	</mvc:interceptors>
-
 	<bean id="contentNegotiationManager"
 		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
 		<property name="mediaTypes">

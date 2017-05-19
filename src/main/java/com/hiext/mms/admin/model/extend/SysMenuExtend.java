@@ -9,4 +9,9 @@ import com.hiext.mms.admin.model.SysMenu;
  */
 public class SysMenuExtend extends SysMenu {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 }

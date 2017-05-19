@@ -13,10 +13,8 @@ import org.springframework.context.i18n.LocaleContextHolder;
  * 
  * @author angy.zhang
  */
-@PropertySource(value = {"classpath:config/thirdParty.properties", "classpath:i18n/messages*.properties"})
+@PropertySource(value = {"classpath:i18n/messages*.properties"})
 public final class Resources {
-    /** 第三方登录配置 */
-    public static final ResourceBundle THIRDPARTY = ResourceBundle.getBundle("config/thirdParty");
     /** 国际化信息 */
     private static final Map<String, ResourceBundle> MESSAGES = new HashMap<String, ResourceBundle>();
 

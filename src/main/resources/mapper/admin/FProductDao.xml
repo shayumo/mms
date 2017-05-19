@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hiext.mms.admin.dao.FProductDao">
+  <resultMap id="BaseResultMap" type="com.hiext.mms.admin.model.FProduct">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="point" jdbcType="BIGINT" property="point" />
+    <result column="num" jdbcType="BIGINT" property="num" />
+    <result column="CreatorId" jdbcType="BIGINT" property="creatorid" />
+    <result column="CreatorName" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="DataLevel" jdbcType="BIGINT" property="datalevel" />
+    <result column="OrderNo" jdbcType="DOUBLE" property="orderno" />
+  </resultMap>
+</mapper>

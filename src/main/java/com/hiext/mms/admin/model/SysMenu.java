@@ -1,7 +1,6 @@
 package com.hiext.mms.admin.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -13,7 +12,7 @@ public class SysMenu implements Serializable {
     @Id
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigDecimal id;
+    private Long id;
 
     /**
      * 菜单名称
@@ -25,13 +24,13 @@ public class SysMenu implements Serializable {
      * 菜单类型 菜单类型(0:CURD;1:系统菜单;2:业务菜单;)
      */
     @Column(name = "Menu_Type")
-    private Integer menuType;
+    private Boolean menuType;
 
     /**
      * 上级菜单编号
      */
     @Column(name = "Parent_Id")
-    private BigDecimal parentId;
+    private Long parentId;
 
     /**
      * 节点图标CSS类名
@@ -49,7 +48,7 @@ public class SysMenu implements Serializable {
      * 排序号
      */
     @Column(name = "Sort_No")
-    private Short sortNo;
+    private Long sortNo;
 
     /**
      * 备注
@@ -61,7 +60,7 @@ public class SysMenu implements Serializable {
      * 创建人编号
      */
     @Column(name = "CreatorId")
-    private Integer creatorid;
+    private Long creatorid;
 
     /**
      * 创建人姓名
@@ -79,7 +78,7 @@ public class SysMenu implements Serializable {
      * 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
     @Column(name = "DataLevel")
-    private Integer datalevel;
+    private Boolean datalevel;
 
     /**
      * 排序号
@@ -94,7 +93,7 @@ public class SysMenu implements Serializable {
      *
      * @return Id - 菜单编号
      */
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
@@ -103,7 +102,7 @@ public class SysMenu implements Serializable {
      *
      * @param id 菜单编号
      */
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -130,7 +129,7 @@ public class SysMenu implements Serializable {
      *
      * @return Menu_Type - 菜单类型 菜单类型(0:CURD;1:系统菜单;2:业务菜单;)
      */
-    public Integer getMenuType() {
+    public Boolean getMenuType() {
         return menuType;
     }
 
@@ -139,7 +138,7 @@ public class SysMenu implements Serializable {
      *
      * @param menuType 菜单类型 菜单类型(0:CURD;1:系统菜单;2:业务菜单;)
      */
-    public void setMenuType(Integer menuType) {
+    public void setMenuType(Boolean menuType) {
         this.menuType = menuType;
     }
 
@@ -148,7 +147,7 @@ public class SysMenu implements Serializable {
      *
      * @return Parent_Id - 上级菜单编号
      */
-    public BigDecimal getParentId() {
+    public Long getParentId() {
         return parentId;
     }
 
@@ -157,7 +156,7 @@ public class SysMenu implements Serializable {
      *
      * @param parentId 上级菜单编号
      */
-    public void setParentId(BigDecimal parentId) {
+    public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 
@@ -202,7 +201,7 @@ public class SysMenu implements Serializable {
      *
      * @return Sort_No - 排序号
      */
-    public Short getSortNo() {
+    public Long getSortNo() {
         return sortNo;
     }
 
@@ -211,7 +210,7 @@ public class SysMenu implements Serializable {
      *
      * @param sortNo 排序号
      */
-    public void setSortNo(Short sortNo) {
+    public void setSortNo(Long sortNo) {
         this.sortNo = sortNo;
     }
 
@@ -238,7 +237,7 @@ public class SysMenu implements Serializable {
      *
      * @return CreatorId - 创建人编号
      */
-    public Integer getCreatorid() {
+    public Long getCreatorid() {
         return creatorid;
     }
 
@@ -247,7 +246,7 @@ public class SysMenu implements Serializable {
      *
      * @param creatorid 创建人编号
      */
-    public void setCreatorid(Integer creatorid) {
+    public void setCreatorid(Long creatorid) {
         this.creatorid = creatorid;
     }
 
@@ -292,7 +291,7 @@ public class SysMenu implements Serializable {
      *
      * @return DataLevel - 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
-    public Integer getDatalevel() {
+    public Boolean getDatalevel() {
         return datalevel;
     }
 
@@ -301,7 +300,7 @@ public class SysMenu implements Serializable {
      *
      * @param datalevel 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
-    public void setDatalevel(Integer datalevel) {
+    public void setDatalevel(Boolean datalevel) {
         this.datalevel = datalevel;
     }
 

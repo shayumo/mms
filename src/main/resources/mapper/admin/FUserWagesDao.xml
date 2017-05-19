@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hiext.mms.admin.dao.FUserWagesDao">
+  <resultMap id="BaseResultMap" type="com.hiext.mms.admin.model.FUserWages">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="sys_User_id" jdbcType="BIGINT" property="sysUserId" />
+    <result column="wages" jdbcType="DOUBLE" property="wages" />
+    <result column="CreatorId" jdbcType="BIGINT" property="creatorid" />
+    <result column="CreatorName" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="DataLevel" jdbcType="BIGINT" property="datalevel" />
+  </resultMap>
+</mapper>

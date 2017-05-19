@@ -1,7 +1,6 @@
 package com.hiext.mms.admin.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -13,7 +12,7 @@ public class SysUser implements Serializable {
     @Id
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     /**
      * 登陆用户名
@@ -31,7 +30,7 @@ public class SysUser implements Serializable {
      * 性别 性别(0:未知;1:男;2:女)
      */
     @Column(name = "Sex")
-    private Short sex;
+    private Boolean sex;
 
     /**
      * 密码
@@ -64,12 +63,6 @@ public class SysUser implements Serializable {
     private Date birthDay;
 
     /**
-     * 部门编号
-     */
-    @Column(name = "Dept_Id")
-    private BigDecimal deptId;
-
-    /**
      * 职位
      */
     @Column(name = "Position")
@@ -91,7 +84,7 @@ public class SysUser implements Serializable {
      * 创建人编号
      */
     @Column(name = "CreatorId")
-    private Integer creatorid;
+    private Long creatorid;
 
     /**
      * 创建人姓名
@@ -109,13 +102,13 @@ public class SysUser implements Serializable {
      * 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
     @Column(name = "DataLevel")
-    private Integer datalevel;
+    private int datalevel;
 
     /**
      * 排序号
      */
     @Column(name = "OrderNo")
-    private Double orderno;
+    private Integer orderno;
 
     private static final long serialVersionUID = 1L;
 
@@ -124,7 +117,7 @@ public class SysUser implements Serializable {
      *
      * @return Id - 编号
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -133,7 +126,7 @@ public class SysUser implements Serializable {
      *
      * @param id 编号
      */
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -178,7 +171,7 @@ public class SysUser implements Serializable {
      *
      * @return Sex - 性别 性别(0:未知;1:男;2:女)
      */
-    public Short getSex() {
+    public Boolean getSex() {
         return sex;
     }
 
@@ -187,7 +180,7 @@ public class SysUser implements Serializable {
      *
      * @param sex 性别 性别(0:未知;1:男;2:女)
      */
-    public void setSex(Short sex) {
+    public void setSex(Boolean sex) {
         this.sex = sex;
     }
 
@@ -282,24 +275,6 @@ public class SysUser implements Serializable {
     }
 
     /**
-     * 获取部门编号
-     *
-     * @return Dept_Id - 部门编号
-     */
-    public BigDecimal getDeptId() {
-        return deptId;
-    }
-
-    /**
-     * 设置部门编号
-     *
-     * @param deptId 部门编号
-     */
-    public void setDeptId(BigDecimal deptId) {
-        this.deptId = deptId;
-    }
-
-    /**
      * 获取职位
      *
      * @return Position - 职位
@@ -358,7 +333,7 @@ public class SysUser implements Serializable {
      *
      * @return CreatorId - 创建人编号
      */
-    public Integer getCreatorid() {
+    public Long getCreatorid() {
         return creatorid;
     }
 
@@ -367,7 +342,7 @@ public class SysUser implements Serializable {
      *
      * @param creatorid 创建人编号
      */
-    public void setCreatorid(Integer creatorid) {
+    public void setCreatorid(Long creatorid) {
         this.creatorid = creatorid;
     }
 
@@ -412,7 +387,7 @@ public class SysUser implements Serializable {
      *
      * @return DataLevel - 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
-    public Integer getDatalevel() {
+    public int getDatalevel() {
         return datalevel;
     }
 
@@ -421,7 +396,7 @@ public class SysUser implements Serializable {
      *
      * @param datalevel 数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿
      */
-    public void setDatalevel(Integer datalevel) {
+    public void setDatalevel(int datalevel) {
         this.datalevel = datalevel;
     }
 
@@ -430,7 +405,7 @@ public class SysUser implements Serializable {
      *
      * @return OrderNo - 排序号
      */
-    public Double getOrderno() {
+    public Integer getOrderno() {
         return orderno;
     }
 
@@ -439,7 +414,7 @@ public class SysUser implements Serializable {
      *
      * @param orderno 排序号
      */
-    public void setOrderno(Double orderno) {
+    public void setOrderno(Integer orderno) {
         this.orderno = orderno;
     }
 
@@ -458,7 +433,6 @@ public class SysUser implements Serializable {
         sb.append(", phone=").append(phone);
         sb.append(", email=").append(email);
         sb.append(", birthDay=").append(birthDay);
-        sb.append(", deptId=").append(deptId);
         sb.append(", position=").append(position);
         sb.append(", address=").append(address);
         sb.append(", staffNo=").append(staffNo);
@@ -493,14 +467,12 @@ public class SysUser implements Serializable {
             && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
             && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
             && (this.getBirthDay() == null ? other.getBirthDay() == null : this.getBirthDay().equals(other.getBirthDay()))
-            && (this.getDeptId() == null ? other.getDeptId() == null : this.getDeptId().equals(other.getDeptId()))
             && (this.getPosition() == null ? other.getPosition() == null : this.getPosition().equals(other.getPosition()))
             && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
             && (this.getStaffNo() == null ? other.getStaffNo() == null : this.getStaffNo().equals(other.getStaffNo()))
             && (this.getCreatorid() == null ? other.getCreatorid() == null : this.getCreatorid().equals(other.getCreatorid()))
             && (this.getCreatorname() == null ? other.getCreatorname() == null : this.getCreatorname().equals(other.getCreatorname()))
             && (this.getCreatedate() == null ? other.getCreatedate() == null : this.getCreatedate().equals(other.getCreatedate()))
-            && (this.getDatalevel() == null ? other.getDatalevel() == null : this.getDatalevel().equals(other.getDatalevel()))
             && (this.getOrderno() == null ? other.getOrderno() == null : this.getOrderno().equals(other.getOrderno()));
     }
 
@@ -517,14 +489,12 @@ public class SysUser implements Serializable {
         result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
         result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
         result = prime * result + ((getBirthDay() == null) ? 0 : getBirthDay().hashCode());
-        result = prime * result + ((getDeptId() == null) ? 0 : getDeptId().hashCode());
         result = prime * result + ((getPosition() == null) ? 0 : getPosition().hashCode());
         result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
         result = prime * result + ((getStaffNo() == null) ? 0 : getStaffNo().hashCode());
         result = prime * result + ((getCreatorid() == null) ? 0 : getCreatorid().hashCode());
         result = prime * result + ((getCreatorname() == null) ? 0 : getCreatorname().hashCode());
         result = prime * result + ((getCreatedate() == null) ? 0 : getCreatedate().hashCode());
-        result = prime * result + ((getDatalevel() == null) ? 0 : getDatalevel().hashCode());
         result = prime * result + ((getOrderno() == null) ? 0 : getOrderno().hashCode());
         return result;
     }

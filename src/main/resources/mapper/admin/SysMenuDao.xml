@@ -5,18 +5,18 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="Id" jdbcType="DECIMAL" property="id" />
+    <id column="Id" jdbcType="BIGINT" property="id" />
     <result column="Menu_Name" jdbcType="VARCHAR" property="menuName" />
-    <result column="Menu_Type" jdbcType="INTEGER" property="menuType" />
-    <result column="Parent_Id" jdbcType="DECIMAL" property="parentId" />
+    <result column="Menu_Type" jdbcType="BIT" property="menuType" />
+    <result column="Parent_Id" jdbcType="BIGINT" property="parentId" />
     <result column="ICOnCls" jdbcType="VARCHAR" property="iconcls" />
     <result column="Request_URL" jdbcType="VARCHAR" property="requestUrl" />
-    <result column="Sort_No" jdbcType="DECIMAL" property="sortNo" />
+    <result column="Sort_No" jdbcType="BIGINT" property="sortNo" />
     <result column="Remark" jdbcType="VARCHAR" property="remark" />
-    <result column="CreatorId" jdbcType="INTEGER" property="creatorid" />
+    <result column="CreatorId" jdbcType="BIGINT" property="creatorid" />
     <result column="CreatorName" jdbcType="VARCHAR" property="creatorname" />
     <result column="CreateDate" jdbcType="TIMESTAMP" property="createdate" />
-    <result column="DataLevel" jdbcType="INTEGER" property="datalevel" />
+    <result column="DataLevel" jdbcType="BIT" property="datalevel" />
     <result column="OrderNo" jdbcType="DOUBLE" property="orderno" />
   </resultMap>
 </mapper>

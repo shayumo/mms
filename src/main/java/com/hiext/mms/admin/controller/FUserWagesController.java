@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * 
  * <br>
- * <b>功能：</b>SysRoleMenuController<br>
+ * <b>功能：</b>FUserWagesController<br>
  */
 @RestController
-@RequestMapping("/sysrolemenu")
-public class SysRoleMenuController extends BaseController {
- 
+@RequestMapping("/fuserwages")
+public class FUserWagesController extends BaseController {
+
 }

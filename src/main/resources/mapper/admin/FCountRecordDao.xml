@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hiext.mms.admin.dao.FCountRecordDao">
+  <resultMap id="BaseResultMap" type="com.hiext.mms.admin.model.FCountRecord">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="f_member_id" jdbcType="BIGINT" property="fMemberId" />
+    <result column="count_type" jdbcType="DECIMAL" property="countType" />
+    <result column="sum" jdbcType="DOUBLE" property="sum" />
+    <result column="pay_type" jdbcType="DECIMAL" property="payType" />
+    <result column="pay_monery" jdbcType="DOUBLE" property="payMonery" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="CreatorId" jdbcType="BIGINT" property="creatorid" />
+    <result column="CreatorName" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="DataLevel" jdbcType="INTEGER" property="datalevel" />
+  </resultMap>
+</mapper>

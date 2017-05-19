@@ -9,4 +9,9 @@ import com.hiext.mms.admin.model.SysUser;
  */
 public class SysUserExtend extends SysUser {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 }
