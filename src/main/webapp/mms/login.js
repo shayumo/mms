@@ -38,7 +38,7 @@ var loginModule = (function(){
 			    	if(data.httpCode=="200"){
 			    		console.log(data);
 			    		//利用cookie记录相关信息  账号ID,账号名称,员工姓名,当前组织名称，当前组织ID,token
-			    		
+			    		localStorage.setItem("userType",data.data);
 			    		location.href = 'index.html';
 			    		
 			    	}else{
