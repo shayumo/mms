@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>礼品设置</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+		<!-- jqgrid-->
+		<link href="css/plugins/jqgrid/ui.jqgridffe4.css?0820" rel="stylesheet">
+		<link href="css/animate.min.css" rel="stylesheet">
+		<link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="jqGrid_wrapper">
+			<table id="table_list_2">
+				
+			</table>
+			
+			<div id="pager_list_2">
+				
+			</div>
+		</div>
+	</body>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+    <script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script>
+        $(document).ready(function(){$.jgrid.defaults.styleUI="Bootstrap";
+        var mydata=[
+        ];
+        $("#table_list_2").jqGrid({data:mydata,datatype:"local",height:350,autowidth:true,shrinkToFit:true,rowNum:20,rowList:[10,20,30],
+        colNames:["礼品编号","礼品名称","所需积分","总数量"],
+        colModel:[
+        {name:"id",index:"id",editable:true,width:60,sorttype:"int",search:true},
+        {name:"name",index:"name",editable:true,width:60,sorttype:"date"},
+        {name:"count",index:"sex",editable:true,width:40,sorttype:"int"},
+        {name:"num",index:"tel",editable:true,width:80,align:"right",sorttype:"int",}
+        ],       
+        pager:"#pager_list_2",viewrecords:true,caption:"礼品设置",add:true,edit:true,addtext:"Add",edittext:"Edit",hidegrid:false});
+        $("#table_list_2").setSelection(4,true);
+        $("#table_list_2").jqGrid("navGrid","#pager_list_2",{edit:true,add:true,del:true,search:true},{height:200,reloadAfterSubmit:true});$(window).bind("resize",function(){var width=$(".jqGrid_wrapper").width();
+        $("#table_list_1").setGridWidth(width);$("#table_list_2").setGridWidth(width)})});
+    </script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+</html>
