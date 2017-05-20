@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * 
  * <br>
- * <b>功能：</b>FPointRecordController<br>
+ * <b>功能：会员积分管理</b>FPointRecordController<br>
  */
 @RestController
 @RequestMapping("/fpointrecord")

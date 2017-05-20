@@ -45,7 +45,7 @@ public class LoginController extends BaseController {
 			@ApiParam(value = "登陆密码", required = true) @RequestParam("password") String password) {
 		Assert.isNotBlank(password, "PASSWORD");
 		if (LoginHelper.login(account, password)) {
-			return setSuccessModelMap(modelMap);
+			return setSuccessModelMap(modelMap,getCurrUser().getUserType());
 		}
 		return setMap(HttpCode.LOGIN_FAIL);
 

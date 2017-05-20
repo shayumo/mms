@@ -34,13 +34,15 @@
         var mydata=[
         ];
         $("#table_list_2").jqGrid({data:mydata,datatype:"local",height:350,autowidth:true,shrinkToFit:true,rowNum:20,rowList:[10,20,30],
-        colNames:["礼品编号","礼品名称","所需积分","总数量"],
+        colNames:["礼品编号","礼品名称","所需积分","总数量","已兑换","剩余量"],
         colModel:[
-        {name:"id",index:"id",editable:true,width:60,sorttype:"int",search:true},
-        {name:"name",index:"name",editable:true,width:60,sorttype:"date"},
-        {name:"count",index:"sex",editable:true,width:40,sorttype:"int"},
-        {name:"num",index:"tel",editable:true,width:80,align:"right",sorttype:"int",}
-        ],       
+        {name:"giftid",index:"giftid",editable:true,width:60,sorttype:"int",search:true},
+        {name:"giftname",index:"giftname",editable:true,width:60,sorttype:"date"},
+        {name:"count",index:"count",editable:true,width:40,sorttype:"int"},
+        {name:"total",index:"total",editable:true,width:80,align:"right",sorttype:"int"},
+        {name:"change",index:"change",editable:true,width:80,align:"right",sorttype:"int"},
+        {name:"remain",index:"remain",editable:true,width:80,align:"right",sorttype:"int"},
+        ],
         pager:"#pager_list_2",viewrecords:true,caption:"礼品设置",add:true,edit:true,addtext:"Add",edittext:"Edit",hidegrid:false});
         $("#table_list_2").setSelection(4,true);
         $("#table_list_2").jqGrid("navGrid","#pager_list_2",{edit:true,add:true,del:true,search:true},{height:200,reloadAfterSubmit:true});$(window).bind("resize",function(){var width=$(".jqGrid_wrapper").width();

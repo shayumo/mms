@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * 
  * <br>
- * <b>功能：</b>FUserWagesController<br>
+ * <b>功能：员工工资计算</b>FUserWagesController<br>
  */
 @RestController
 @RequestMapping("/fuserwages")

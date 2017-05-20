@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * 
  * <br>
- * <b>功能：</b>FCountRecordController<br>
+ * <b>功能：会员消费卡台账</b>FCountRecordController<br>
  */
 @RestController
 @RequestMapping("/fcountrecord")
