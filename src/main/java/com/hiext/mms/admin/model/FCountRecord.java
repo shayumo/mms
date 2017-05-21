@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Table(name = "f_count_record")
 public class FCountRecord implements Serializable {
     /**
@@ -64,6 +66,7 @@ public class FCountRecord implements Serializable {
      * 创建日期
      */
     @Column(name = "CreateDate")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdate;
 
     /**

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Table(name = "f_member")
 public class FMember implements Serializable {
     /**
@@ -34,6 +36,7 @@ public class FMember implements Serializable {
     /**
      * 生日
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date birthday;
 
     /**
@@ -46,6 +49,7 @@ public class FMember implements Serializable {
      * 有效期
      */
     @Column(name = "card_date")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date cardDate;
 
     /**
@@ -88,6 +92,7 @@ public class FMember implements Serializable {
      * 创建日期
      */
     @Column(name = "CreateDate")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdate;
 
     /**

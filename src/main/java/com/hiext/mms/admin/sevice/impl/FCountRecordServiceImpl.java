@@ -78,6 +78,7 @@ public class FCountRecordServiceImpl implements FCountRecordService {
 			fPointRecord.setPointType(false);
 			fPointRecord.setCreatorid(fCountRecord.getCreatorid());
 			fPointRecord.setCreatorname(fCountRecord.getCreatorname());
+			fPointRecord.setCreatedate(GetDateTime.getNowDate());
 			fPointRecord.setfMemberId(fCountRecord.getfMemberId());
 			if(fCountRecord.getfMemberId()!=null){
 				//会员信息

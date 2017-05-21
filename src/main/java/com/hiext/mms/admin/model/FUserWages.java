@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Table(name = "f_user_wages")
 public class FUserWages implements Serializable {
     /**
@@ -41,6 +43,7 @@ public class FUserWages implements Serializable {
      * 创建日期
      */
     @Column(name = "CreateDate")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdate;
 
     /**

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Table(name = "Sys_Role_menu")
 public class SysRoleMenu implements Serializable {
     @Id
@@ -42,6 +44,7 @@ public class SysRoleMenu implements Serializable {
      * 创建日期
      */
     @Column(name = "CreateDate")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdate;
 
     /**
