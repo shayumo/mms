@@ -1,5 +1,8 @@
 package com.hiext.mms.admin.sevice.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,6 +11,8 @@ import com.hiext.mms.admin.model.FCountRecord;
 import com.hiext.mms.admin.model.FMember;
 import com.hiext.mms.admin.model.FPointRecord;
 import com.hiext.mms.admin.model.FUserWages;
+import com.hiext.mms.admin.model.FVip;
+import com.hiext.mms.admin.model.extend.FCountRecordExtend;
 import com.hiext.mms.admin.provider.FCountRecordProvider;
 import com.hiext.mms.admin.provider.FPointRecordProvider;
 import com.hiext.mms.admin.provider.FUserWagesProvider;
@@ -15,6 +20,8 @@ import com.hiext.mms.admin.provider.FVipProvider;
 import com.hiext.mms.admin.provider.impl.FMemberProviderImpl;
 import com.hiext.mms.admin.sevice.FCountRecordService;
 import com.hiext.mms.core.util.GetDateTime;
+
+import tk.mybatis.mapper.entity.Example;
 @Service
 public class FCountRecordServiceImpl implements FCountRecordService {
 	@Autowired
@@ -151,6 +158,24 @@ public class FCountRecordServiceImpl implements FCountRecordService {
 			return discount*fCountRecord.getSum()/100;
 		}
 		return 0;
+	}
+	@Override
+	public List<FCountRecordExtend> queryByMenid(FMember men) {
+		Example example = new Example(FCountRecord.class);
+		example.createCriteria().andCondition("datalevel<>2").andEqualTo("f_member_id", men.getId());
+		List<FCountRecord> fCountRecords=fCountRecordProvider.selectAllByExample(example);
+		List<FCountRecordExtend> fExtends=new ArrayList<FCountRecordExtend>();
+		FVip fVip=fVipProvider.selectByPrimaryKey(men.getfVipId());
+		double point = fVip.getPoint();
+		for (FCountRecord fCount : fCountRecords) {
+			FCountRecordExtend e= new FCountRecordExtend(); 
+			e.transOf(fCount);
+			//计算积分
+			double countPoint = point*fCount.getSum();
+			e.setCountPoint(countPoint);
+			fExtends.add(e);
+		}
+		return fExtends;
 	}
 
 }

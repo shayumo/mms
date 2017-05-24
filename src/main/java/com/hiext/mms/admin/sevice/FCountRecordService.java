@@ -1,8 +1,12 @@
 package com.hiext.mms.admin.sevice;
 
+import java.util.List;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hiext.mms.admin.model.FCountRecord;
+import com.hiext.mms.admin.model.FMember;
+import com.hiext.mms.admin.model.extend.FCountRecordExtend;
 
 /**
  * 
@@ -31,4 +35,10 @@ public interface FCountRecordService {
 	 * @return
 	 */
 	double getDisNum(FCountRecord fCountRecord);
+	/**
+	 * 根据会员Id查询会员消费记录
+	 * @param menId
+	 * @return
+	 */
+	List<FCountRecordExtend> queryByMenid(FMember men);
 }

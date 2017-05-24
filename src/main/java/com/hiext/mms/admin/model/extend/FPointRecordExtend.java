@@ -5,7 +5,7 @@ import com.hiext.mms.admin.model.FPointRecord;
 /**
  * 
  * <br>
- * <b>功能：</b>FPointRecordExtend<br>
+ * <b>功能：积分兑换</b>FPointRecordExtend<br>
  */
 public class FPointRecordExtend extends FPointRecord {
 

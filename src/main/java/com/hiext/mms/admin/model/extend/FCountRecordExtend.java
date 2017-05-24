@@ -19,5 +19,19 @@ public class FCountRecordExtend extends FCountRecord {
 	public void setCountPoint(double countPoint) {
 		this.countPoint = countPoint;
 	}
+	
+	public void transOf(FCountRecord fCount){
+		this.setCountType(fCount.getCountType());
+		this.setCreatedate(fCount.getCreatedate());
+		this.setCreatorid(fCount.getCreatorid());
+		this.setCreatorname(fCount.getCreatorname());
+		this.setDatalevel(fCount.getDatalevel());
+		this.setfMemberId(fCount.getfMemberId());
+		this.setId(fCount.getId());
+		this.setPayMonery(fCount.getPayMonery());
+		this.setPayType(fCount.getPayType());
+		this.setRemark(fCount.getRemark());
+		this.setSum(fCount.getSum());
+	}
 
 }

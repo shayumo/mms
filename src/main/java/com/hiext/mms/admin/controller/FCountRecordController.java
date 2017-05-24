@@ -1,14 +1,21 @@
 package com.hiext.mms.admin.controller;
 
 import com.hiext.mms.admin.model.FCountRecord;
+import com.hiext.mms.admin.model.FMember;
+import com.hiext.mms.admin.model.extend.FCountRecordExtend;
+import com.hiext.mms.admin.provider.FMemberProvider;
 import com.hiext.mms.admin.sevice.FCountRecordService;
 import com.hiext.mms.core.HttpCode;
 import com.hiext.mms.core.base.controller.BaseController;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import tk.mybatis.mapper.entity.Example;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +33,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class FCountRecordController extends BaseController {
 	@Autowired
 	private FCountRecordService fCountRecordService;
+	@Autowired
+	private FMemberProvider fMemberProvider;
 	
 	/**
 	 * 会员充值 
@@ -84,7 +93,16 @@ public class FCountRecordController extends BaseController {
 	@PostMapping(value="/detil")
 	public Object detil(ModelMap modelMap,@RequestBody String Tel){
 		if(Tel!=null){
-			 
+			Example example = new Example(FMember.class);
+			example.createCriteria().andEqualTo("Tel", Tel).andCondition("datalevel<> 2");
+			List<FMember> fmen=fMemberProvider.selectAllByExample(example);
+			if(fmen.size()>0){
+				FMember fMember = fmen.get(0);
+				List<FCountRecordExtend> counts=fCountRecordService.queryByMenid(fMember);
+				return setMap(HttpCode.OK,counts);
+			}else{
+				return setMap(HttpCode.BAD_REQUEST,"请求失败");
+			}
 		}
 		
 		return setMap(HttpCode.BAD_REQUEST,"请求失败");
