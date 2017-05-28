@@ -2,6 +2,7 @@ package com.hiext.mms.admin.controller;
 
 import com.hiext.mms.admin.model.FMember;
 import com.hiext.mms.admin.provider.FMemberProvider;
+import com.hiext.mms.admin.provider.FVipProvider;
 import com.hiext.mms.core.HttpCode;
 import com.hiext.mms.core.base.controller.BaseController;
 
@@ -31,11 +32,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class FMemberController extends BaseController {
 	@Autowired
 	private FMemberProvider fMemberProvider;
+	@Autowired
+	private FVipProvider fVipProvider;
 	
 	@ApiOperation(value = "所有会员", httpMethod = "POST")
 	@PostMapping(value = "/list")
 	public Object list(ModelMap modelMap){
-		List<FMember> users=fMemberProvider.selectAll();
+		Example example = new Example(FMember.class);
+		example.createCriteria().andCondition("datalevel<> 1");
+		List<FMember> users=fMemberProvider.selectAllByExample(example);
 		return setModelMap(modelMap, HttpCode.OK, users);
 	}
 	@ApiOperation(value="新增会员",httpMethod="POST")
@@ -45,8 +50,12 @@ public class FMemberController extends BaseController {
 		if(user !=null){
 			user.setDatalevel(0);
 			user.setCreatorname(getCurrUser().getName());
+			user.setfVipName(fVipProvider.selectByPrimaryKey(user.getfVipId()).getName());
 			user.setCreatorid(getCurrUser().getId());
 			fMemberProvider.insert(user);
+			Long st=user.getId()+1000;
+			user.setCardNo(st.toString());
+			fMemberProvider.update(user);
 			return setMap(HttpCode.OK);
 		}
 		return setSuccessMap("请填写用户信息");

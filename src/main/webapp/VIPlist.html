@@ -14,6 +14,7 @@
 	</head>
 
 	<body>
+	    <button class="btn btn-primary"  id="delete">删除</button>
 		<div class="jqGrid_wrapper">
 			<table id="table_list_2">
 
@@ -29,106 +30,14 @@
 	<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
 	<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
 	<script src="js/content.min.js?v=1.0.0"></script>
+	<script src="mms/member.js"></script>
 	<script>
+	
 		$(document).ready(function() {
 			$.jgrid.defaults.styleUI = "Bootstrap";
-			var mydata = [];
-			//      $("#table_list_1").jqGrid({data:mydata,datatype:"local",height:250,autowidth:true,shrinkToFit:true,rowNum:14,rowList:[10,20,30],colNames:["序号","日期","客户","金额","运费","总额","备注"],
-			//      colModel:[{name:"id",index:"id",width:60,sorttype:"int"},{name:"invdate",index:"invdate",width:90,sorttype:"date",formatter:"date"},{name:"name",index:"name",width:100},{name:"amount",index:"amount",width:80,align:"right",sorttype:"float",formatter:"number"},
-			//      {name:"tax",index:"tax",width:80,align:"right",sorttype:"float"},{name:"total",index:"total",width:80,align:"right",sorttype:"float"},{name:"note",index:"note",width:150,sortable:false}],pager:"#pager_list_1",viewrecords:true,caption:"jqGrid 示例1",hidegrid:false});
-			$("#table_list_2").jqGrid({
-				data: mydata,
-				datatype: "local",
-				height: 350,
-				autowidth: true,
-				shrinkToFit: true,
-				rowNum: 20,
-				rowList: [10, 20, 30],
-				colNames: ["编号", "姓名", "性别", "电话", "生日", "登记时间","累计消费","当前积分", "当前余额", "会员等级"],
-				colModel: [{
-					name: "id",
-					index: "id",
-					editable: false,
-					width: 60,
-					sorttype: "int",
-					search: true
-				}, {
-					name: "name",
-					index: "name",
-					editable: true,
-					width: 60,
-					sorttype: "date"
-				}, {
-					name: "sex",
-					index: "sex",
-					editable: true,
-					width: 40
-				}, {
-					name: "tel",
-					index: "tel",
-					editable: true,
-					width: 80,
-					align: "right",
-					sorttype: "float",
-				}, {
-					name: "borndate",
-					index: "borndate",
-					editable: true,
-					width: 80,
-					align: "right",
-					sorttype: "date"
-				}, {
-					name: "time",
-					index: "time",
-					editable: true,
-					width: 100,
-					sortable: false
-				}, {
-					name: "consume",
-					index: "consume",
-					editable: true,
-					width: 100,
-					sortable: false
-				}, {
-					name: "integral",
-					index: "integral",
-					editable: true,
-					width: 100,
-					sortable: false
-				}, 
-				{
-					name: "balance",
-					index: "balance",
-					editable: true,
-					width: 80,
-					align: "right",
-					sorttype: "int"
-				}, {
-					name: "level",
-					index: "level",
-					editable: true,
-					width: 100,
-					sorttype: "int"
-				}, ],
-				pager: "#pager_list_2",
-				viewrecords: true,
-				caption: "会员列表",
-				add: true,
-				edit: true,
-				addtext: "Add",
-				edittext: "Edit",
-				hidegrid: false
-			});
-			$("#table_list_2").setSelection(4, true);
-			$("#table_list_2").jqGrid("navGrid", "#pager_list_2", {
-				edit: true,
-				add: true,
-				del: true,
-				search: true
-			}, {
-				height: 200,
-				reloadAfterSubmit: true
-			});
+			
+	 		getList();
+		
 			$(window).bind("resize", function() {
 				var width = $(".jqGrid_wrapper").width();
 				$("#table_list_1").setGridWidth(width);
