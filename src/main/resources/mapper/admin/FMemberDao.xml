@@ -7,7 +7,7 @@
     -->
     <id column="Id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="Sex" jdbcType="BIT" property="sex" />
+    <result column="Sex" jdbcType="INTEGER" property="sex" />
     <result column="Tel" jdbcType="VARCHAR" property="tel" />
     <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
     <result column="card_NO" jdbcType="VARCHAR" property="cardNo" />

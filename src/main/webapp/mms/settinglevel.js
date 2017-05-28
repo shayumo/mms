@@ -27,4 +27,4 @@ $("#save").click(function() {
 			alert("errr");
 		}
 	});
-}
+})

@@ -25,7 +25,7 @@ public class FMember implements Serializable {
      * 性别 0未知 1男 2女
      */
     @Column(name = "Sex")
-    private Boolean sex;
+    private Integer sex;
 
     /**
      * 电话
@@ -144,7 +144,7 @@ public class FMember implements Serializable {
      *
      * @return Sex - 性别 0未知 1男 2女
      */
-    public Boolean getSex() {
+    public Integer getSex() {
         return sex;
     }
 
@@ -153,7 +153,7 @@ public class FMember implements Serializable {
      *
      * @param sex 性别 0未知 1男 2女
      */
-    public void setSex(Boolean sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
