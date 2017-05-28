@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<title>会员消费</title>
+		<title>消费记录</title>
 		<meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
 		<meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 		<link rel="shortcut icon" href="favicon.ico">
@@ -14,6 +14,18 @@
 		<link href="css/plugins/iCheck/custom.css" rel="stylesheet">
 		<link href="css/animate.min.css" rel="stylesheet">
 		<link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+
+		<link href="css/plugins/chosen/chosen.css" rel="stylesheet">
+		<link href="css/plugins/colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+		<link href="css/plugins/cropper/cropper.min.css" rel="stylesheet">
+		<link href="css/plugins/switchery/switchery.css" rel="stylesheet">
+		<link href="css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
+		<link href="css/plugins/nouslider/jquery.nouislider.css" rel="stylesheet">
+		<link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+		<link href="css/plugins/ionRangeSlider/ion.rangeSlider.css" rel="stylesheet">
+		<link href="css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+		<link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+		<link href="css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
 
 	</head>
 
@@ -32,16 +44,17 @@
 									<div class="col-md-8 input-group">
 										<input type="text" placeholder="请输入会员号" class="input-sm form-control">
 										<span class="input-group-btn">  
-											<button type="button" class="btn btn-sm btn-primary"> 搜索</button> 
+											<button type="button" class="btn btn-sm btn-primary">搜索</button> 
 										</span>
 									</div>
 									<div class="col-md-2"></div>
 								</div>
 
 							</div>
-							<div class="row">
-								<div class="ibox float-e-margins">
-									<label class="col-sm-2">会员基本信息</label>
+
+							<div class="ibox float-e-margins">
+								<div class="ibox-header">
+									<h5>会员基本信息</h5>
 									<div class="ibox-tools">
 										<a class="collapse-link">
 											<i class="fa fa-chevron-up"></i>
@@ -50,102 +63,150 @@
 											<i class="fa fa-times"></i>
 										</a>
 									</div>
-									<div class="ibox-content">
-										<table class="table table-hover" ">
-											<thead>
+								</div>
+								<div class="ibox-content">
+									<div class="row">
+										<div class="col-md-12">
+											<table class="table table-striped">
 												<tr>
-													<th>会员卡号</th>
+													<th>编号</th>
 													<th>姓名</th>
+													<th>性别</th>
+													<th>电话</th>
 													<th>生日</th>
-													<th>等级</th>
-													<th>会员状态</th>
-													<th>账户余额</th>
-													<th>当前积分</th>
+													<th>登记时间</th>
 													<th>累计消费</th>
+													<th>当前积分</th>
+													<th>当前余额</th>
+													<th>会员等级</th>
+
 												</tr>
-											</thead>
-											<tbody>
 												<tr>
-													<td>18848956830</td>
-													<td>张妮</td>
-													<td>7.7</td>
-													<td>1</td>
-													<td>正常</td>
-													<td>100</td>
-													<td>200</td>
-													<td>300</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+
 												</tr>
-											</tbody>
-										</table>
+											</table>
+
+										</div>
+									</div>
+								</div>
+
+								<!--输入内容-->
+								<div class="hr-line-dashed "></div>
+								<form method="get " class="form-horizontal ">
+									<div class="form-group ">
+										<label class="col-sm-2 control-label ">消费日期</label>
+										<div class="col-sm-10 ">
+											<input class="form-control layer-date " placeholder="YYYY-MM-DD hh:mm:ss " onclick="laydate({istime: true,istoday:true, format: 'YYYY-MM-DD hh:mm:ss'}) ">
+										</div>
+									</div>
+									<div class="hr-line-dashed "></div>
+									<div class="form-group ">
+										<label class="col-sm-2 control-label ">请输入消费金额</label>
+										<div class="col-sm-10 ">
+											<div class="input-group m-b ">
+												<span class="input-group-addon ">&yen;</span>
+												<input type="text " class="form-control "> <span class="input-group-addon ">.00</span>
+											</div>
+										</div>
+									</div>
+									<div class="hr-line-dashed "></div>
+									<div class="form-group ">
+										<label class="col-sm-2 control-label ">折后总金额</label>
+										<div class="col-sm-10 ">
+											<div class="input-group m-b ">
+												<input type="text " class="form-control "> <span class="input-group-addon ">.00</span>
+											</div>
+										</div>
+									</div>
+									<div class="hr-line-dashed "></div>
+
+									<div class="form-group draggable">
+										<label class="col-sm-2 control-label">支付方式 </label>
+										<div class="col-sm-10">
+											<div class="radio radio-info radio-inline">
+												<input type="radio" checked="" value="option1" id="inlineRadio1" name="radioInline">
+												<label for="inlineRadio1">余额支付</label>
+											</div>
+											<div class="radio radio-info radio-inline">
+												<input type="radio" value="option2" id="inlineRadio2" name="radioInline">
+												<label for="inlineRadio2">现金支付</label>
+											</div>
+											<div class="radio radio-info radio-inline">
+												<input type="radio" value="option3" id="inlineRadio3" name="radioInline">
+												<label for="inlineRadio3">余额+现金</label>
+											</div>
+										</div>
 									</div>
 
-								</div>
+									<!--<div class="form-group ">
+										<label class="col-sm-2 control-label ">支付方式</label>
+												<div class="col-sm-10 ">
+													<select name=" " class="chosen-select form-control ">
+														<option value=" " hassubinfo="true ">余额支付</option>
+														<option value=" " hassubinfo="true ">现金支付</option>
+														<option value=" " hassubinfo="true ">余额+现金</option>
+													</select>
+												</div>
+											</div>-->
+									<div class="hr-line-dashed "></div>
+									<div class="form-group ">
+										<label class="col-sm-2 control-label ">现金支付额</label>
+										<div class="col-sm-10 ">
+											<div class="input-group m-b ">
+												<input type="text " class="form-control "> <span class="input-group-addon ">.00</span>
+											</div>
+										</div>
+									</div>
+									<div class="hr-line-dashed "></div>
+									<div class="form-group ">
+										<label class="col-sm-2 control-label ">可自动累计积分数量</label>
+										<div class="col-sm-10 ">
+											<input type="text " class="form-control ">
+										</div>
+									</div>
+
+									<div class="hr-line-dashed "></div>
+									<div class="form-group ">
+										<div class="col-sm-4 col-sm-offset-2 ">
+											<button class="btn btn-primary " type="submit ">立即结算</button>
+											<button class="btn btn-white " type="submit ">取消</button>
+										</div>
+									</div>
+
+								</form>
 							</div>
-
-							<!--输入内容-->
-							<div class="hr-line-dashed "></div>
-							<form method="get " class="form-horizontal ">
-								<div class="form-group ">
-									<label class="col-sm-2 control-label ">消费日期</label>
-									<div class="col-sm-10 ">
-										<input class="form-control layer-date " placeholder="YYYY-MM-DD hh:mm:ss " onclick="laydate({istime: true,istoday:true, format: 'YYYY-MM-DD hh:mm:ss'}) ">
-									</div>
-								</div>
-								<div class="hr-line-dashed "></div>
-								<div class="form-group ">
-									<label class="col-sm-2 control-label ">请输入消费金额</label>
-									<div class="col-sm-10 ">
-										<div class="input-group m-b ">
-											<span class="input-group-addon ">&yen;</span>
-											<input type="text " class="form-control "> <span class="input-group-addon ">.00</span>
-										</div>
-									</div>
-								</div>
-								<div class="hr-line-dashed "></div>
-								<div class="form-group ">
-									<label class="col-sm-2 control-label ">折后总金额</label>
-									<div class="col-sm-10 ">
-										<div class="input-group m-b ">
-											<input type="text " class="form-control "> <span class="input-group-addon ">.00</span>
-										</div>
-									</div>
-								</div>
-								<div class="hr-line-dashed "></div>
-								<div class="form-group ">
-									<label class="col-sm-2 control-label ">可自动累计积分数量</label>
-									<div class="col-sm-10 ">
-										<input type="text " class="form-control ">
-									</div>
-								</div>
-								<div class="hr-line-dashed "></div>
-								<div class="form-group ">
-									<div class="col-sm-4 col-sm-offset-2 ">
-										<button class="btn btn-primary " type="submit ">立即结算</button>
-										<button class="btn btn-white " type="submit ">取消</button>
-									</div>
-								</div>
-							</form>
 						</div>
+
 					</div>
 				</div>
+
 			</div>
-		</div>
 
-		<script src="js/jquery.min.js?v=2.1.4 "></script>
-		<script src="js/bootstrap.min.js?v=3.3.6 "></script>
-		<script src="js/content.min.js?v=1.0.0 "></script>
-		<script src="js/plugins/iCheck/icheck.min.js "></script>
-		<script src="js/plugins/layer/laydate/laydate.js "></script>
-		<script>
-			$(document).ready(function() {
-				$(".i-checks ").iCheck({
-					checkboxClass: "icheckbox_square-green ",
-					radioClass: "iradio_square-green ",
-				})
+			<script src="js/jquery.min.js?v=2.1.4 "></script>
+			<script src="js/bootstrap.min.js?v=3.3.6 "></script>
+			<script src="js/content.min.js?v=1.0.0 "></script>
+			<script src="js/plugins/iCheck/icheck.min.js "></script>
+			<script src="js/plugins/layer/laydate/laydate.js "></script>
+			<script>
+				$(document).ready(function() {
+					$(".i-checks ").iCheck({
+						checkboxClass: "icheckbox_square-green ",
+						radioClass: "iradio_square-green ",
+					})
 
-			});
-		</script>
-		<script type="text/javascript " src="http://tajs.qq.com/stats?sId=9051096 " charset="UTF-8 "></script>
+				});
+			</script>
+			<script type="text/javascript " src="http://tajs.qq.com/stats?sId=9051096 " charset="UTF-8 "></script>
 	</body>
 
 </html>

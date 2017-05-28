@@ -2,174 +2,162 @@
 <html>
 
 	<head>
-		<meta charset="UTF-8">
-		<title>礼品兑换</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>消费记录</title>
+		<meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+		<meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 		<link rel="shortcut icon" href="favicon.ico">
 		<link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
 		<link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
-		<!-- jqgrid-->
-		<link href="css/plugins/jqgrid/ui.jqgridffe4.css?0820" rel="stylesheet">
+		<link href="css/plugins/iCheck/custom.css" rel="stylesheet">
 		<link href="css/animate.min.css" rel="stylesheet">
 		<link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+
+		<link href="css/plugins/chosen/chosen.css" rel="stylesheet">
+		<link href="css/plugins/colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+		<link href="css/plugins/cropper/cropper.min.css" rel="stylesheet">
+		<link href="css/plugins/switchery/switchery.css" rel="stylesheet">
+		<link href="css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
+		<link href="css/plugins/nouslider/jquery.nouislider.css" rel="stylesheet">
+		<link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+		<link href="css/plugins/ionRangeSlider/ion.rangeSlider.css" rel="stylesheet">
+		<link href="css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+		<link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+		<link href="css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+
 	</head>
 
-	<body>
-		<div class="jqGrid_wrapper">
-			<table id="table_list_2">
+	<body class="gray-bg">
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>积分兑换礼品 <small>请先选择会员</small></h5>
+						</div>
+						<div class="ibox-content">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="col-md-2"></div>
+									<div class="col-md-8 input-group">
+										<input type="text" placeholder="请输入会员号" class="input-sm form-control">
+										<span class="input-group-btn">  
+											<button type="button" class="btn btn-sm btn-primary">搜索</button> 
+										</span>
+									</div>
+									<div class="col-md-2"></div>
+								</div>
 
-			</table>
-			<div id="pager_list_2">
+							</div>
+
+							<div class="ibox float-e-margins">
+								<div class="ibox-header">
+									<h5>会员基本信息</h5>
+									<div class="ibox-tools">
+										<a class="collapse-link">
+											<i class="fa fa-chevron-up"></i>
+										</a>
+										<a class="close-link">
+											<i class="fa fa-times"></i>
+										</a>
+									</div>
+								</div>
+								<div class="ibox-content">
+									<div class="row">
+										<div class="col-md-12">
+											<table class="table table-striped">
+												<tr>
+													<th>编号</th>
+													<th>姓名</th>
+													<th>性别</th>
+													<th>电话</th>
+													<th>生日</th>
+													<th>登记时间</th>
+													<th>累计消费</th>
+													<th>当前积分</th>
+													<th>当前余额</th>
+													<th>会员等级</th>
+
+												</tr>
+												<tr>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+													<td>Data</td>
+
+												</tr>
+											</table>
+
+										</div>
+									</div>
+								</div>
+
+								<!--输入内容-->
+								<div class="hr-line-dashed "></div>
+								<form method="get " class="form-horizontal ">
+									<div class="form-group ">
+										<label class="col-sm-2 control-label ">选择兑换礼品</label>
+										<div class="col-sm-10">
+											<select name="gift" id="gift" class="form-control">
+												<option value="0" hassubinfo="true">选择礼品</option>
+											</select>
+										</div>
+									</div>
+									<div class="hr-line-dashed "></div>
+									<div class="form-group ">
+										<label class="col-sm-2 control-label ">兑换数量</label>
+										<div class="col-sm-10">
+											<input type="text " class="form-control ">
+										</div>
+									</div>
+									<div class="hr-line-dashed "></div>
+
+									<div class="form-group draggable">
+										<label class="col-sm-2 control-label">消耗积分 </label>
+										<div class="col-sm-10">
+											<input type="text " class="form-control ">
+										</div>
+									</div>
+									<div class="hr-line-dashed "></div>
+									<div class="form-group ">
+										<div class="col-sm-4 col-sm-offset-2 ">
+											<button class="btn btn-primary " type="submit ">马上兑换</button>
+											<button class="btn btn-white " type="submit ">取消</button>
+										</div>
+									</div>
+
+								</form>
+							</div>
+						</div>
+
+					</div>
+				</div>
 
 			</div>
-		</div>
+
+			<script src="js/jquery.min.js?v=2.1.4 "></script>
+			<script src="js/bootstrap.min.js?v=3.3.6 "></script>
+			<script src="js/content.min.js?v=1.0.0 "></script>
+			<script src="js/plugins/iCheck/icheck.min.js "></script>
+			<script src="js/plugins/layer/laydate/laydate.js "></script>
+			<script>
+				$(document).ready(function() {
+					$(".i-checks ").iCheck({
+						checkboxClass: "icheckbox_square-green ",
+						radioClass: "iradio_square-green ",
+					})
+
+				});
+			</script>
+			<script type="text/javascript " src="http://tajs.qq.com/stats?sId=9051096 " charset="UTF-8 "></script>
 	</body>
-	<script src="js/jquery.min.js?v=2.1.4"></script>
-	<script src="js/bootstrap.min.js?v=3.3.6"></script>
-	<script src="js/plugins/peity/jquery.peity.min.js"></script>
-	<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
-	<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
-	<script src="js/content.min.js?v=1.0.0"></script>
-	<script>
-		$(document).ready(function() {
-			$.jgrid.defaults.styleUI = "Bootstrap";
-			var mydata = [];
-
-			//			$("#table_list_1").jqGrid({
-			//				data: mydata,
-			//				datatype: "local",
-			//				height: 250,
-			//				autowidth: true,
-			//				shrinkToFit: true,
-			//				rowNum: 14,
-			//				rowList: [10, 20, 30],
-			//				colNames: ["序号", "日期", "客户", "金额", "运费", "总额", "备注"],
-			//				colModel: [{
-			//					name: "id",
-			//					index: "id",
-			//					width: 60,
-			//					sorttype: "int"
-			//				}, {
-			//					name: "invdate",
-			//					index: "invdate",
-			//					width: 90,
-			//					sorttype: "date",
-			//					formatter: "date"
-			//				}, {
-			//					name: "name",
-			//					index: "name",
-			//					width: 100
-			//				}, {
-			//					name: "amount",
-			//					index: "amount",
-			//					width: 80,
-			//					align: "right",
-			//					sorttype: "float",
-			//					formatter: "number"
-			//				}, {
-			//					name: "tax",
-			//					index: "tax",
-			//					width: 80,
-			//					align: "right",
-			//					sorttype: "float"
-			//				}, {
-			//					name: "total",
-			//					index: "total",
-			//					width: 80,
-			//					align: "right",
-			//					sorttype: "float"
-			//				}, {
-			//					name: "note",
-			//					index: "note",
-			//					width: 150,
-			//					sortable: false
-			//				}],
-			//				pager: "#pager_list_1",
-			//				viewrecords: true,
-			//				caption: "jqGrid 示例1",
-			//				hidegrid: false
-			//			});
-
-			$("#table_list_2").jqGrid({
-				data: mydata,
-				datatype: "local",
-				height: 350,
-				autowidth: true,
-				shrinkToFit: true,
-				rowNum: 20,
-				rowList: [10, 20, 30],
-				colNames: ["会员卡号", "姓名", "礼品编号", "礼品名称", "兑换数量", "积分数量", "兑换时间"],
-				colModel: [{
-					name: "cardno",
-					index: "cardno",
-					editable: true,
-					width: 60,
-					sorttype: "int",
-					search: true
-				}, {
-					name: "name",
-					index: "name",
-					editable: true,
-					width: 60,
-					sorttype: "date"
-				}, {
-					name: "giftid",
-					index: "giftid",
-					editable: true,
-					width: 40
-				}, {
-					name: "giftname",
-					index: "giftname",
-					editable: true,
-					width: 40
-				}, {
-					name: "changenum",
-					index: "changenum",
-					editable: true,
-					width: 80,
-					align: "right",
-					sorttype: "float",
-				}, {
-					name: "count",
-					index: "count",
-					editable: true,
-					width: 60,
-					align: "right",
-					sorttype: "date",
-					formatter: "date"
-				}, {
-					name: "changetime",
-					index: "changetime",
-					editable: true,
-					width: 80,
-					align: "right",
-					sorttype: "int"
-				}],
-				pager: "#pager_list_2",
-				viewrecords: true,
-				caption: "会员列表",
-				add: true,
-				edit: true,
-				addtext: "Add",
-				edittext: "Edit",
-				hidegrid: false
-			});
-			$("#table_list_2").setSelection(4, true);
-			$("#table_list_2").jqGrid("navGrid", "#pager_list_2", {
-				edit: true,
-				add: true,
-				del: true,
-				search: true
-			}, {
-				height: 200,
-				reloadAfterSubmit: true
-			});
-			$(window).bind("resize", function() {
-				var width = $(".jqGrid_wrapper").width();
-				$("#table_list_1").setGridWidth(width);
-				$("#table_list_2").setGridWidth(width)
-			})
-		});
-	</script>
-	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
 
 </html>

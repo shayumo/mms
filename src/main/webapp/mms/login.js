@@ -33,16 +33,14 @@ var loginModule = (function(){
 			    headers:{'content-Type':'application/json'},
 			    dataType:'json', 
 			    success:function(data){   
-			    	console.log(data);  
-			    	
+			    	console.log(data); 	
 			    	if(data.httpCode=="200"){
 			    		console.log(data);
 			    		//利用cookie记录相关信息  账号ID,账号名称,员工姓名,当前组织名称，当前组织ID,token
 			    		localStorage.setItem("userType",data.data);
 			    		location.href = 'index.html';
-			    		
 			    	}else{
-			    		//alert("登陆失败");
+			    		//alert("登录失败");
 			    		showmessage01('登录失败!');
 			    	}
 			    }, 
@@ -58,7 +56,6 @@ var loginModule = (function(){
 		checkForm : checkForm
 	};
 })();
-
 
 $(document).ready(function(){
 	if(window.localStorage){

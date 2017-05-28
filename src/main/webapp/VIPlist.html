@@ -48,7 +48,7 @@
 				colModel: [{
 					name: "id",
 					index: "id",
-					editable: true,
+					editable: false,
 					width: 60,
 					sorttype: "int",
 					search: true
@@ -122,7 +122,7 @@
 			$("#table_list_2").setSelection(4, true);
 			$("#table_list_2").jqGrid("navGrid", "#pager_list_2", {
 				edit: true,
-				add: false,
+				add: true,
 				del: true,
 				search: true
 			}, {
