@@ -75,13 +75,13 @@ public class FMemberController extends BaseController {
 	 */
 	@ApiOperation(value = "查询会员", httpMethod = "POST")
 	@PostMapping(value = "/queryOne")
-	public Object query(ModelMap modelMap,@RequestBody Long id){
+	public Object query(ModelMap modelMap,Long id){
 		modelMap.clear();
 		return setModelMap(modelMap, HttpCode.OK, fMemberProvider.selectByPrimaryKey(id));
 	}
 	@ApiOperation(value = "根据会员卡号查询会员", httpMethod = "POST")
 	@PostMapping(value = "/queryCard")
-	public Object queryCardID(ModelMap modelMap,@RequestBody String tel){
+	public Object queryCardID(ModelMap modelMap,String tel){
 		modelMap.clear();
 		Example example = new Example(FMember.class);
 		example.createCriteria().andLike("tel", tel).andCondition("datalevel<> 2");
@@ -96,7 +96,7 @@ public class FMemberController extends BaseController {
 	 */
 	@ApiOperation(value = "删除会员", httpMethod = "POST")
 	@PostMapping(value = "/del")
-	public Object del(ModelMap modelMap,@RequestBody Long id){
+	public Object del(ModelMap modelMap,Long id){
 		FMember fMember = new FMember();
 		fMember.setId(id);
 		fMember.setDatalevel(1);
