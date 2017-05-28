@@ -18,8 +18,8 @@
 			<div class="col-md-12">
 				<div class="col-md-2"></div>
 				<div class="col-md-8 input-group">
-					<input type="text" placeholder="请输入会员号" class="input-sm form-control"> <span class="input-group-btn">
-                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+					<input type="text" placeholder="请输入会员号" class="input-sm form-control" id="tel"> <span class="input-group-btn">
+                        <button type="button" class="btn btn-sm btn-primary" id="search"> 搜索</button> </span>
 				</div>
 				<div class="col-md-2">
 
@@ -54,19 +54,8 @@
 								<th>会员等级</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<td>18848956830</td>
-								<td>张妮</td>
-								<td>7.7</td>
-								<td>1</td>
-								<td>正常</td>
-								<td>100</td>
-								<td>200</td>
-								<td>300</td>
-								<td>200</td>
-								<td>300</td>
-							</tr>
+						<tbody id="data">
+
 						</tbody>
 					</table>
 				</div>
@@ -77,6 +66,7 @@
 		<script src="js/bootstrap.min.js?v=3.3.6"></script>
 		<script src="js/content.min.js?v=1.0.0"></script>
 		<script src="js/plugins/iCheck/icheck.min.js"></script>
+		<script src="mms/member.js"></script>
 	</body>
 
 </html>

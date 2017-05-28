@@ -35,7 +35,9 @@ public class FMemberController extends BaseController {
 	@ApiOperation(value = "所有会员", httpMethod = "POST")
 	@PostMapping(value = "/list")
 	public Object list(ModelMap modelMap){
-		List<FMember> users=fMemberProvider.selectAll();
+		Example example = new Example(FMember.class);
+		example.createCriteria().andCondition("datalevel<> 1");
+		List<FMember> users=fMemberProvider.selectAllByExample(example);
 		return setModelMap(modelMap, HttpCode.OK, users);
 	}
 	@ApiOperation(value="新增会员",httpMethod="POST")
@@ -81,7 +83,7 @@ public class FMemberController extends BaseController {
 	}
 	@ApiOperation(value = "根据会员卡号查询会员", httpMethod = "POST")
 	@PostMapping(value = "/queryCard")
-	public Object queryCardID(ModelMap modelMap,@RequestBody String tel){
+	public Object queryCardID(ModelMap modelMap, String tel){
 		modelMap.clear();
 		Example example = new Example(FMember.class);
 		example.createCriteria().andLike("tel", tel).andCondition("datalevel<> 2");
@@ -96,7 +98,7 @@ public class FMemberController extends BaseController {
 	 */
 	@ApiOperation(value = "删除会员", httpMethod = "POST")
 	@PostMapping(value = "/del")
-	public Object del(ModelMap modelMap,@RequestBody Long id){
+	public Object del(ModelMap modelMap, Long id){
 		FMember fMember = new FMember();
 		fMember.setId(id);
 		fMember.setDatalevel(1);
