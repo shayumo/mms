@@ -1,153 +1,133 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title>会员充值</title>
-		<link rel="shortcut icon" href="favicon.ico">
-		<link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
-		<link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
-		<link href="css/animate.min.css" rel="stylesheet">
-		<link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
-	</head>
+<head>
+<meta charset="UTF-8">
+<title>会员充值</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+<link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+<link href="css/animate.min.css" rel="stylesheet">
+<link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
 
-	<body>
-		<div class="row">
-			<br />
-			<div class="col-md-12">
-				<div class="col-md-2"></div>
-				<div class="col-md-8 input-group">
-					<input type="text" placeholder="请输入会员号" class="input-sm form-control"> 
-						<span class="input-group-btn">
-                        	<button type="button" class="btn btn-sm btn-primary"> 搜索</button>
-						</span>
-				</div>
-				<div class="col-md-2">
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="ibox float-e-margins">
-				<label class="col-sm-2">会员基本信息</label>
-				<div class="ibox-tools">
-					<a class="collapse-link">
-						<i class="fa fa-chevron-up"></i>
-					</a>
-					<a class="close-link">
-						<i class="fa fa-times"></i>
-					</a>
-				</div>
-				<div class="ibox-content">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>编号</th>
-								<th>姓名</th>
-								<th>性别</th>
-								<th>电话</th>
-								<th>生日</th>
-								<th>登记时间</th>					
-								<th>累计消费</th>
-								<th>当前积分</th>
-								<th>当前余额</th>
-								<th>会员等级</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>18848956830</td>
-								<td>张妮</td>
-								<td>7.7</td>
-								<td>1</td>
-								<td>正常</td>
-								<td>100</td>
-								<td>200</td>
-								<td>300</td>
-								<td>200</td>
-								<td>300</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-
-			</div>
-		</div>
-		<div class="wrapper wrapper-content animated fadeInRight gray-bg">
-			<form method="get" class="form-horizontal">
-				<div class="form-group">
-					<label class="col-sm-2 control-label">充值金额 </label>
-					<div class="col-sm-10">
-						<div class="input-group m-b">
-							<span class="input-group-addon">&yen;</span>
-							<input type="text" class="form-control">
-							<span class="input-group-addon">.00</span>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label">赠送金额 </label>
-					<div class="col-sm-10">
-						<div class="input-group m-b">
-							<span class="input-group-addon">&yen;</span>
-							<input type="text" class="form-control">
-							<span class="input-group-addon">.00</span>
-						</div>
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<div class="col-sm-4 col-sm-offset-2">
-						<button class="btn btn-primary" type="submit">充值</button>
-						<button class="btn btn-white" type="submit">取消</button>
-					</div>
-				</div>
-			</form>
-		</div>
-		
+<body>
+	<div class="row">
 		<br />
-		<div class="row">
-			<div class="ibox float-e-margins">
-				<label class="col-sm-2">会员充值记录</label>
-				<div class="ibox-tools">
-					<a class="collapse-link">
-						<i class="fa fa-chevron-up"></i>
-					</a>
-					<a class="close-link">
-						<i class="fa fa-times"></i>
-					</a>
-				</div>
-				<div class="ibox-content">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>支付金额</th>
-								<th>赠送金额</th>
-								<th>支付时间</th>						
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>18848956830</td>
-								<td>张妮</td>
-								<td>7.7</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-
+		<div class="col-md-12">
+			<div class="col-md-2"></div>
+			<div class="col-md-8 input-group">
+				<input id="mobile" type="text" placeholder="请输入会员号"
+					class="input-sm form-control"> <span
+					class="input-group-btn">
+					<button id="search" type="button" class="btn btn-sm btn-primary">搜索</button>
+				</span>
 			</div>
+			<div class="col-md-2"></div>
 		</div>
-		
-		<script src="js/jquery.min.js?v=2.1.4"></script>
-		<script src="js/bootstrap.min.js?v=3.3.6"></script>
-		<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-		<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-		<script src="js/plugins/layer/layer.min.js"></script>
-		<script src="js/hplus.min.js?v=4.1.0"></script>
-		<script src="js/contabs.min.js"></script>
-		<script src="js/plugins/pace/pace.min.js"></script>
-		<script src="js/content.min.js?v=1.0.0"></script>
-		<script src="js/plugins/iCheck/icheck.min.js"></script>
-	</body>
+	</div>
+	<div class="row">
+		<div class="ibox float-e-margins">
+			<label class="col-sm-2">会员基本信息</label>
+			<div class="ibox-tools">
+				<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+				</a> <a class="close-link"> <i class="fa fa-times"></i>
+				</a>
+			</div>
+			<div class="ibox-content">
+				<table class="table table-striped">
+					<tr>
+						<th>编号</th>
+						<th>姓名</th>
+						<th>电话</th>
+						<th>当前积分</th>
+						<th>当前余额</th>
+						<th>会员等级</th>
+					</tr>
+					<tr>
+						<td id="id"></td>
+						<td id="name"></td>
+						<td id="tel"></td>
+						<td id="pointCount"></td>
+						<td id="monery"></td>
+						<td id="vipName"></td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+	</div>
+	<div class="wrapper wrapper-content animated fadeInRight gray-bg">
+		<form method="get" class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">充值金额 </label>
+				<div class="col-sm-10">
+					<div class="input-group m-b">
+						<span class="input-group-addon">&yen;</span> <input type="text"
+							class="form-control"> <span class="input-group-addon">.00</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">赠送金额 </label>
+				<div class="col-sm-10">
+					<div class="input-group m-b">
+						<span class="input-group-addon">&yen;</span> <input type="text"
+							class="form-control"> <span class="input-group-addon">.00</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-4 col-sm-offset-2">
+					<button class="btn btn-primary" type="button">充值</button>
+					<button class="btn btn-white" type="button">取消</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<br />
+	<div class="row">
+		<div class="ibox float-e-margins">
+			<label class="col-sm-2">会员充值记录</label>
+			<div class="ibox-tools">
+				<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+				</a> <a class="close-link"> <i class="fa fa-times"></i>
+				</a>
+			</div>
+			<div class="ibox-content">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>支付金额</th>
+							<th>赠送金额</th>
+							<th>支付时间</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>18848956830</td>
+							<td>张妮</td>
+							<td>7.7</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js?v=2.1.4"></script>
+	<script src="js/bootstrap.min.js?v=3.3.6"></script>
+	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="js/plugins/layer/layer.min.js"></script>
+	<script src="js/hplus.min.js?v=4.1.0"></script>
+	<script src="js/contabs.min.js"></script>
+	<script src="js/plugins/pace/pace.min.js"></script>
+	<script src="js/content.min.js?v=1.0.0"></script>
+	<script src="js/plugins/iCheck/icheck.min.js"></script>
+</body>
 
 </html>

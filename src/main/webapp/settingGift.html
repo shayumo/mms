@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>礼品设置</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+		<link href="css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+		<link href="css/animate.min.css" rel="stylesheet">
+		<link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<form method="get" class="form-horizontal" id="form1" name="form1">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">礼品名称</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="giftName" name="giftName">
+					</div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">兑换积分 </label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="point" name="point">
+					</div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">总数量 </label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="sum" name="sum">
+					</div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group">
+					<div class="col-sm-4 col-sm-offset-2">
+						<button class="btn btn-primary" type="button" id="save">保存</button>
+						<button class="btn btn-white" type="submit">取消</button>
+					</div>
+				</div>
+			</form>
+
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5>礼品信息</h5>
+						<div class="ibox-tools">
+							<a class="collapse-link">
+								<i class="fa fa-chevron-up"></i>
+							</a>
+							<a class="close-link">
+								<i class="fa fa-times"></i>
+							</a>
+						</div>
+					</div>
+					<div class="ibox-content">
+						<div class="example">
+							<table id="VIPlist" data-toggle="table" data-url="config/prolist" data-height="250" data-mobile-responsive="true">
+								<thead>
+									<tr>
+										<th></th>
+										<th data-field="id">id</th>
+										<th data-field="name">礼品名称</th>
+										<th data-field="point">兑换积分</th>
+										<th data-field="discount">总数</th>
+										<th data-field="discount">兑换量</th>
+										<th data-field="discount">剩余量</th>
+									</tr>
+								</thead>
+								<tbody id="giftList">
+									<tr>
+										
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th colspan="7">
+											<button class="btn btn-primary" type="button" id="save">修改</button>
+											<button class="btn btn-white" type="submit">删除</button>
+										</th>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/jquery.min.js?v=2.1.4"></script>
+		<script src="js/bootstrap.min.js?v=3.3.6"></script>
+		<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+		<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+		<script src="js/plugins/layer/layer.min.js"></script>
+		<script src="js/hplus.min.js?v=4.1.0"></script>
+		<script src="js/contabs.min.js"></script>
+		<script src="js/plugins/pace/pace.min.js"></script>
+		<script src="mms/settingGift.js"></script>
+		<script src="js/plugins/iCheck/icheck.min.js"></script>
+		<script src="js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+		<script src="js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+		<script src="js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+		<!--<script src="js/plugins/peity/jquery.peity.min.js"></script>-->
+
+		<!--<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>-->
+
+		<!--<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>-->
+
+		<!--隐藏内容框-->
+		<script src="js/content.min.js?v=1.0.0"></script>
+
+		<script>
+//			$(document).ready(function() {
+//				$(".i-checks").iCheck({
+//					checkboxClass: "icheckbox_square-green",
+//					radioClass: "iradio_square-green",
+//				})
+//			});
+		</script>
+	</body>
+
+</html>
