@@ -1,5 +1,14 @@
 package com.hiext.mms.admin.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.hiext.mms.admin.model.FMember;
 import com.hiext.mms.admin.provider.FMemberProvider;
 import com.hiext.mms.admin.provider.FVipProvider;
@@ -9,17 +18,6 @@ import com.hiext.mms.core.base.controller.BaseController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import tk.mybatis.mapper.entity.Example;
-
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-
-import org.apache.shiro.authz.annotation.RequiresRoles;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 
