@@ -8,7 +8,7 @@
     <id column="Id" jdbcType="BIGINT" property="id" />
     <result column="f_member_id" jdbcType="BIGINT" property="fMemberId" />
     <result column="count_type" jdbcType="DECIMAL" property="countType" />
-    <result column="sum" jdbcType="DOUBLE" property="sum" />
+    <result column="jinge" jdbcType="DOUBLE" property="sum" />
     <result column="pay_type" jdbcType="DECIMAL" property="payType" />
     <result column="pay_monery" jdbcType="DOUBLE" property="payMonery" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />

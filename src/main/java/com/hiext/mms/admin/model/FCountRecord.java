@@ -33,6 +33,7 @@ public class FCountRecord implements Serializable {
     /**
      * 金额
      */
+    @Column(name = "jinge")
     private Double sum;
 
     /**
