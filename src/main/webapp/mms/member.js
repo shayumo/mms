@@ -1,20 +1,34 @@
-	
-Date.prototype.format = function (fmt) { //author: meizz   
-    var o = {  
-        "M+": this.getMonth() + 1, //月份   
-        "d+": this.getDate(), //日   
-        "h+": this.getHours(), //小时   
-        "m+": this.getMinutes(), //分   
-        "s+": this.getSeconds(), //秒   
-        "q+": Math.floor((this.getMonth() + 3) / 3), //季度   
-        "S": this.getMilliseconds() //毫秒   
-    };  
-    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));  
-    for (var k in o)  
-    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));  
-    return fmt;  
-}  	
 
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var url=window.location.href;
+     var r = url.substr(1).match(reg);
+     if(r!=null){
+    	 return  unescape(r[2]); 
+     }else{
+    	 return null; 
+     }
+    
+}
+
+function UrlSearch() 
+{
+   var name,value; 
+   var str=window.location.href; //取得整个地址栏
+   var num=str.indexOf("?") 
+   str=str.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
+
+   var arr=str.split("&"); //各个参数放到数组里
+   for(var i=0;i < arr.length;i++){ 
+    num=arr[i].indexOf("="); 
+    if(num>0){ 
+     name=arr[i].substring(0,num);
+     value=arr[i].substr(num+1);
+     this[name]=value;
+     } 
+    } 
+} 
 
 function getList(){
 		
@@ -39,15 +53,56 @@ function getList(){
 		}); 
 				
 	}
+
+
+function getVipList(){
+	
+	$.ajax({   
+	    type:"POST", //请求方式  
+	    url:"config/viplist", //请求路径     
+	    headers:{'content-Type':'application/json'},
+	    dataType:'json', 
+	    success:function(data){   
+	    	console.log(data); 	
+	    	if(data.httpCode=="200"){
+	    		console.log(data.data);
+	    		vipSelect(data.data);
+	    	}else{
+	    		//alert("登录失败");
+	    		showmessage01('登录失败!');
+	    	}
+	    }, 
+	    error:function(){  
+	        alert("errr");
+	    }  
+	}); 
+			
+}
+
+
+ function vipSelect(data){
+	 var v_html="";
+	 
+	 for (o in data){
+		 
+		 v_html=v_html+"<option value='"+data[o].id+"' hassubinfo='true'>"+data[o].name+"</option>";
+		 
+	 }
+	 $("#VIPlevel").append(v_html);
+	 
+	 
+ }
 	
 	$("#save").click(function() {
 		var VIPname=$("#VIPname").val();
 		var VIPtel=$("#VIPtel").val();
 		var VIPlevel=$("#VIPlevel").val();
+		var VIPlevelname=$("#VIPlevel").find("option:selected").text();
 		var birth=$("#birth").val();
 		var sex=$('input:radio:checked').val();
+		
 
-		var data={"name":VIPname,"tel":VIPtel,"fVipId": VIPlevel,"birthday":birth,"sex":sex};
+		var data={"name":VIPname,"tel":VIPtel,"fVipId": VIPlevel,"birthday":birth,"sex":sex,"fVipName":VIPlevelname};
 		add(data);
 		
 	})
@@ -286,6 +341,53 @@ function deleteBYId(id){
 			
 }
 
+function updateData(data){
+	
+	
+	$.ajax({   
+	    type:"POST", //请求方式  
+	    url:"fmember/update", //请求路径     
+	    headers:{'content-Type':'application/json'},
+	    dataType:'json', 
+	    data:JSON.stringify(data),
+	    success:function(data){   
+	    	if(data.httpCode=="200"){
+	    		window.location.href='VIPlist.html';
+
+	    	}else{
+	    		//alert("登录失败");
+	    		showmessage01('登录失败!');
+	    	}
+	    }, 
+	    error:function(){  
+	        alert("errr");
+	    }  
+	}); 
+			
+}
+
+function selectById(id){
+
+	$.ajax({   
+	    type:"POST", //请求方式  
+	    url:"fmember/queryOne?id="+id, //请求路径     
+	    headers:{'content-Type':'application/json'},
+	    dataType:'json', 
+	    success:function(data){   
+	    	if(data.httpCode=="200"){
+	    		createDataForUpdate(data.data)
+	    	}else{
+	    		//alert("登录失败");
+	    		showmessage01('登录失败!');
+	    	}
+	    }, 
+	    error:function(){  
+	        alert("errr");
+	    }  
+	}); 
+			
+}
+
 $("#search").click(function() {
   
 	searchByNo($("#tel").val());
@@ -305,6 +407,61 @@ $("#delete").click(function() {
 	}
 	
 })
+
+$("#update").click(function() {
+  
+	var id=$("#table_list_2").jqGrid('getGridParam', 'selrow');
+	
+	if (id==null) {
+		alert("请选择要修改的行");
+	}else{
+		window.location.href='updateVIP.html?id='+id;
+		selectById(id);
+		
+	}
+	
+})
+
+$("#updateSave1").click(function() {
+	var id=$("#id").val();
+	var VIPname=$("#VIPname").val();
+	var VIPtel=$("#VIPtel").val();
+	var VIPlevel=$("#VIPlevel").val();
+	var VIPlevelname=$("#VIPlevel").find("option:selected").text();
+	var birth=$("#birth").val();
+	var sex=$('input:radio:checked').val();
+	
+
+	var data={"id":id,"name":VIPname,"tel":VIPtel,"fVipId": VIPlevel,"birthday":birth,"sex":sex,"fVipName":VIPlevelname};
+
+	updateData(data);
+	
+})
+
+
+//function updateSave(){
+//	alert("aaaaaaaaa");
+//	
+//}
+
+
+function createDataForUpdate(data){
+	
+	console.log(data.data);
+	
+  $("#id").val(data.id);
+  $("#VIPname").val(data.name);
+  $("#VIPtel").val(data.tel);
+  $("#VIPlevel").val(data.fVipId);
+  $("#birth").val(data.birthday);
+  
+  $("input[name='radioInline']").each(function(index, element) {
+ 
+      if($(this).val()==data.sex){
+         $(this).prop("checked",true);
+      }
+  });
+}   
 
 
 	

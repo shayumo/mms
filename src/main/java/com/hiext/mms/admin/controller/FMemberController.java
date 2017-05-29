@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hiext.mms.admin.model.FMember;
+import com.hiext.mms.admin.model.extend.FMemberExtend;
 import com.hiext.mms.admin.provider.FMemberProvider;
 import com.hiext.mms.admin.provider.FVipProvider;
 import com.hiext.mms.core.HttpCode;
@@ -69,6 +70,7 @@ public class FMemberController extends BaseController {
 	//@RequiresRoles(value="系统管理员")
 	public Object update(ModelMap modelMap,@RequestBody FMember user){
 		if(user !=null){
+			System.out.println(user.toString());
 			fMemberProvider.update(user);
 			return setMap(HttpCode.OK);
 		}
@@ -109,6 +111,15 @@ public class FMemberController extends BaseController {
 		fMember.setDatalevel(1);
 		fMemberProvider.delete(fMember);
 		return setModelMap(modelMap, HttpCode.OK, "删除成功");
+	}
+	
+
+	@ApiOperation(value = "会员统计", httpMethod = "POST")
+	@PostMapping(value = "/hytj")
+	public Object hytj(ModelMap modelMap){
+	
+		FMemberExtend extend= fMemberProvider.hytj();
+		return setModelMap(modelMap, HttpCode.OK, extend);
 	}
  
 }

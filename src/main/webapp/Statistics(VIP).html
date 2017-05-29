@@ -24,16 +24,14 @@
 						<tr>
 							<th>会员数量</th>
 							<th>会员总收入</th>
-							<th>余额充值收费</th>
-							<th>备注</th>
+							<th>余额充值收费</th>	
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>1</td>
-							<td>张三</td>
-							<td>男</td>
-							<td>23</td>
+							<td id="s_qty"></td>
+							<td id="s_amt"></td>
+							<td id="s_ye"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -48,12 +46,15 @@
 		<script src="js/demo/peity-demo.min.js"></script>
 		<!--隐藏内容框-->
 		<script src="js/content.min.js?v=1.0.0"></script>
+		<script src="mms/hytj.js"></script>
 		<script>
 			$(document).ready(function() {
 				$(".i-checks").iCheck({
 					checkboxClass: "icheckbox_square-green",
 					radioClass: "iradio_square-green",
 				})
+				
+				getHytj();
 			});
 		</script>
 		<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
