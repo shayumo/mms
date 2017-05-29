@@ -42,9 +42,9 @@
 								<div class="col-md-12">
 									<div class="col-md-2"></div>
 									<div class="col-md-8 input-group">
-										<input type="text" placeholder="请输入会员号" class="input-sm form-control">
+										<input id="mobile"  type="text" placeholder="请输入会员号" class="input-sm form-control">
 										<span class="input-group-btn">  
-											<button type="button" class="btn btn-sm btn-primary">搜索</button> 
+											<button id="search" type="button" class="btn btn-sm btn-primary">搜索</button> 
 										</span>
 									</div>
 									<div class="col-md-2"></div>
@@ -71,38 +71,28 @@
 												<tr>
 													<th>编号</th>
 													<th>姓名</th>
-													<th>性别</th>
 													<th>电话</th>
-													<th>生日</th>
-													<th>登记时间</th>
-													<th>累计消费</th>
 													<th>当前积分</th>
 													<th>当前余额</th>
 													<th>会员等级</th>
 
 												</tr>
 												<tr>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-
+													<td id="id"></td>
+													<td id="name"></td>
+													<td id="tel"></td>
+													<td id="pointCount"></td>
+													<td id="monery"></td>
+													<td id="vipName"></td>
 												</tr>
 											</table>
-
 										</div>
 									</div>
 								</div>
 
 								<!--输入内容-->
 								<div class="hr-line-dashed "></div>
-								<form method="get " class="form-horizontal ">
+								<form class="form-horizontal">
 									<div class="form-group ">
 										<label class="col-sm-2 control-label ">选择兑换礼品</label>
 										<div class="col-sm-10">
@@ -115,7 +105,7 @@
 									<div class="form-group ">
 										<label class="col-sm-2 control-label ">兑换数量</label>
 										<div class="col-sm-10">
-											<input type="text " class="form-control ">
+											<input id="shuliang" type="text" class="form-control ">
 										</div>
 									</div>
 									<div class="hr-line-dashed "></div>
@@ -123,14 +113,14 @@
 									<div class="form-group draggable">
 										<label class="col-sm-2 control-label">消耗积分 </label>
 										<div class="col-sm-10">
-											<input type="text " class="form-control ">
+											<input id="xh" type="text " class="form-control ">
 										</div>
 									</div>
 									<div class="hr-line-dashed "></div>
 									<div class="form-group ">
 										<div class="col-sm-4 col-sm-offset-2 ">
-											<button class="btn btn-primary " type="submit ">马上兑换</button>
-											<button class="btn btn-white " type="submit ">取消</button>
+											<button id="duihuan" class="btn btn-primary " type="button">马上兑换</button>
+											<button class="btn btn-white " type="button">取消</button>
 										</div>
 									</div>
 
@@ -140,24 +130,21 @@
 
 					</div>
 				</div>
-
 			</div>
-
+			</div>
+	<script id="listTemp" type="text/html">
+{{each data as value i}}
+<option value="{{value.id}}">{{value.name}}</option>
+{{/each}}
+</script>
 			<script src="js/jquery.min.js?v=2.1.4 "></script>
 			<script src="js/bootstrap.min.js?v=3.3.6 "></script>
 			<script src="js/content.min.js?v=1.0.0 "></script>
 			<script src="js/plugins/iCheck/icheck.min.js "></script>
 			<script src="js/plugins/layer/laydate/laydate.js "></script>
-			<script>
-				$(document).ready(function() {
-					$(".i-checks ").iCheck({
-						checkboxClass: "icheckbox_square-green ",
-						radioClass: "iradio_square-green ",
-					})
-
-				});
-			</script>
 			<script type="text/javascript " src="http://tajs.qq.com/stats?sId=9051096 " charset="UTF-8 "></script>
+			<script type="text/javascript" src="js/template.js"></script>
+			<script src="mms/giftchange.js "></script>
 	</body>
 
 </html>

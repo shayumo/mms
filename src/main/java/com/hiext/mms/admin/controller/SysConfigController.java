@@ -132,6 +132,14 @@ public class SysConfigController extends BaseController{
 		List<FProduct> vips=fProductProvider.selectAllByExample(example);
 		return setModelMap(modelMap, HttpCode.OK, vips);
 	}
+	@ApiOperation(value = "查询数量不为空的礼品列表", httpMethod = "POST")
+	@PostMapping(value = "/prolistnum")
+	public Object listProBynum(ModelMap modelMap) {
+		Example example = new Example(FProduct.class);
+		example.createCriteria().andCondition("datalevel <> 1").andCondition("num>0");
+		List<FProduct> vips=fProductProvider.selectAllByExample(example);
+		return setModelMap(modelMap, HttpCode.OK, vips);
+	}
 	@ApiOperation(value = "根据产品ID查询", httpMethod = "POST")
 	@PostMapping(value = "/queryPro")
 	public Object queryOnePro(ModelMap modelMap,@RequestBody Long id) {

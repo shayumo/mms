@@ -35,9 +35,9 @@
 				<div class="col-md-12">
 					<div class="col-md-2"></div>
 					<div class="col-md-8 input-group">
-						<input type="text" placeholder="请输入会员号" class="input-sm form-control">
+						<input id="mobile" type="text" placeholder="请输入会员号" class="input-sm form-control">
 						<span class="input-group-btn">  
-											<button type="button" class="btn btn-sm btn-primary">搜索</button> 
+											<button id="search"  type="button" class="btn btn-sm btn-primary">搜索</button> 
 										</span>
 					</div>
 					<div class="col-md-2"></div>
@@ -54,33 +54,31 @@
 							<th>兑换数量</th>
 							<th>兑换时间</th>
 						</tr>
-						<tr>
-							<td>Data</td>
-							<td>Data</td>
-							<td>Data</td>
-							<td>Data</td>
-						</tr>
+						<tbody id="list">
+						</tbody>
 					</table>
 
 				</div>
 			</div>
 		</div>
-
+	<script id="listTemp" type="text/html">
+{{each data as value i}}
+<tr>
+	<td>{{value.proName}}</td>
+    <td>{{value.pointCount}}</td>
+    <td>{{value.count}}</td>
+	<td>{{value.createdate}}</td>
+</tr>
+{{/each}}
+</script>
 		<script src="js/jquery.min.js?v=2.1.4 "></script>
 		<script src="js/bootstrap.min.js?v=3.3.6 "></script>
 		<script src="js/content.min.js?v=1.0.0 "></script>
 		<script src="js/plugins/iCheck/icheck.min.js "></script>
 		<script src="js/plugins/layer/laydate/laydate.js "></script>
-		<script>
-			$(document).ready(function() {
-				$(".i-checks ").iCheck({
-					checkboxClass: "icheckbox_square-green ",
-					radioClass: "iradio_square-green ",
-				})
-
-			});
-		</script>
 		<script type="text/javascript " src="http://tajs.qq.com/stats?sId=9051096 " charset="UTF-8 "></script>
+		<script type="text/javascript" src="js/template.js"></script>
+		<script src="mms/changeHistory.js" type="text/javascript"></script>
 	</body>
 
 </html>
