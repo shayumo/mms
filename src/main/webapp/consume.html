@@ -71,28 +71,19 @@
 												<tr>
 													<th>编号</th>
 													<th>姓名</th>
-													<th>性别</th>
 													<th>电话</th>
-													<th>生日</th>
-													<th>登记时间</th>
-													<th>累计消费</th>
 													<th>当前积分</th>
 													<th>当前余额</th>
 													<th>会员等级</th>
 
 												</tr>
 												<tr>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-													<td>Data</td>
-
+													<td id="id"></td>
+													<td id="name"></td>
+													<td id="tel"></td>
+													<td id="pointCount"></td>
+													<td id="monery"></td>
+													<td id="vipName"></td>
 												</tr>
 											</table>
 
@@ -102,7 +93,7 @@
 
 								<!--输入内容-->
 								<div class="hr-line-dashed "></div>
-								<form method="get " class="form-horizontal ">
+								<form class="form-horizontal ">
 									<div class="form-group ">
 										<label class="col-sm-2 control-label ">消费日期</label>
 										<div class="col-sm-10 ">
@@ -115,7 +106,7 @@
 										<div class="col-sm-10 ">
 											<div class="input-group m-b ">
 												<span class="input-group-addon ">&yen;</span>
-												<input type="text " class="form-control "> <span class="input-group-addon ">.00</span>
+												<input id="count1" type="text" class="form-control "> <span class="input-group-addon ">.00</span>
 											</div>
 										</div>
 									</div>
@@ -124,7 +115,10 @@
 										<label class="col-sm-2 control-label ">折后总金额</label>
 										<div class="col-sm-10 ">
 											<div class="input-group m-b ">
-												<input type="text " class="form-control "> <span class="input-group-addon ">.00</span>
+												<input id="count2" type="text" class="form-control" disabled="disabled"/> <span class="input-group-addon ">.00</span>
+												<input id="vipId" type="hidden"/>
+												<input id="discountfuck" type="hidden"/>
+												<input id="pointfuck" type="hidden"/>
 											</div>
 										</div>
 									</div>
@@ -132,17 +126,17 @@
 
 									<div class="form-group draggable">
 										<label class="col-sm-2 control-label">支付方式 </label>
-										<div class="col-sm-10">
+										<div class="col-sm-10" id="warp">
 											<div class="radio radio-info radio-inline">
-												<input type="radio" checked="" value="option1" id="inlineRadio1" name="radioInline">
+												<input type="radio" value="0" id="inlineRadio1" name="radioInline">
 												<label for="inlineRadio1">余额支付</label>
 											</div>
 											<div class="radio radio-info radio-inline">
-												<input type="radio" value="option2" id="inlineRadio2" name="radioInline">
+												<input type="radio" value="1" id="inlineRadio2" name="radioInline">
 												<label for="inlineRadio2">现金支付</label>
 											</div>
 											<div class="radio radio-info radio-inline">
-												<input type="radio" value="option3" id="inlineRadio3" name="radioInline">
+												<input type="radio" value="2" id="inlineRadio3" name="radioInline">
 												<label for="inlineRadio3">余额+现金</label>
 											</div>
 										</div>
@@ -163,7 +157,7 @@
 										<label class="col-sm-2 control-label ">现金支付额</label>
 										<div class="col-sm-10 ">
 											<div class="input-group m-b ">
-												<input type="text " class="form-control "> <span class="input-group-addon ">.00</span>
+												<input id="xianjing" type="text" class="form-control "> <span class="input-group-addon ">.00</span>
 											</div>
 										</div>
 									</div>
@@ -171,15 +165,15 @@
 									<div class="form-group ">
 										<label class="col-sm-2 control-label ">可自动累计积分数量</label>
 										<div class="col-sm-10 ">
-											<input type="text " class="form-control ">
+											<input id="count3" type="text" disabled="disabled" class="form-control ">
 										</div>
 									</div>
 
 									<div class="hr-line-dashed "></div>
 									<div class="form-group ">
 										<div class="col-sm-4 col-sm-offset-2 ">
-											<button class="btn btn-primary " type="submit ">立即结算</button>
-											<button class="btn btn-white " type="submit ">取消</button>
+											<button id="jiesuan" class="btn btn-primary " type="button">立即结算</button>
+											<button id="quxiao"class="btn btn-white " type="submit">取消</button>
 										</div>
 									</div>
 
@@ -189,7 +183,7 @@
 
 					</div>
 				</div>
-
+			</div>
 			</div>
 
 			<script src="js/jquery.min.js?v=2.1.4 "></script>

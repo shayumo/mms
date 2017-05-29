@@ -6,6 +6,8 @@ import javax.persistence.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Table(name = "Sys_Role_menu")
 public class SysRoleMenu implements Serializable {
     @Id
@@ -44,7 +46,8 @@ public class SysRoleMenu implements Serializable {
      * 创建日期
      */
     @Column(name = "CreateDate")
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createdate;
 
     /**

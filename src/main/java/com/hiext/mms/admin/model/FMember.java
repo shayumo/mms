@@ -6,6 +6,8 @@ import javax.persistence.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Table(name = "f_member")
 public class FMember implements Serializable {
     /**
@@ -36,7 +38,8 @@ public class FMember implements Serializable {
     /**
      * 生日
      */
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8") 
     private Date birthday;
 
     /**
@@ -49,7 +52,8 @@ public class FMember implements Serializable {
      * 有效期
      */
     @Column(name = "card_date")
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8") 
     private Date cardDate;
 
     /**
@@ -92,7 +96,8 @@ public class FMember implements Serializable {
      * 创建日期
      */
     @Column(name = "CreateDate")
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8") 
     private Date createdate;
 
     /**

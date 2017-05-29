@@ -91,7 +91,7 @@ public class FCountRecordServiceImpl implements FCountRecordService {
 				//会员信息
 				fMember=fMemberProviderImpl.selectByPrimaryKey(fCountRecord.getfMemberId());
 				// 当前积分赋值
-				cuPoint=fMember.getfPointSum();
+				cuPoint=(fMember.getfPointSum()!=null?fMember.getfPointSum():0);
 				// 积分换算系数
 				changerPonit=fVipProvider.selectByPrimaryKey(fMember.getfVipId()).getPoint();
 				// 卡类余额
@@ -105,7 +105,7 @@ public class FCountRecordServiceImpl implements FCountRecordService {
 				//会员卡内余额消费
 				case 0:
 					//判断卡类余额是否充足
-					if(fMember.getCardMonery()>fCountRecord.getSum()){
+					if((fMember.getCardMonery()!=null ? fMember.getCardMonery():0)>fCountRecord.getSum()){
 						//减掉本次消费
 						cardMenery = fMember.getCardMonery()-fCountRecord.getSum();
 					}
@@ -162,7 +162,7 @@ public class FCountRecordServiceImpl implements FCountRecordService {
 	@Override
 	public List<FCountRecordExtend> queryByMenid(FMember men) {
 		Example example = new Example(FCountRecord.class);
-		example.createCriteria().andCondition("datalevel<>2").andEqualTo("f_member_id", men.getId());
+		example.createCriteria().andCondition("datalevel<>2").andEqualTo("fMemberId", men.getId()).andCondition("count_type=1");
 		List<FCountRecord> fCountRecords=fCountRecordProvider.selectAllByExample(example);
 		List<FCountRecordExtend> fExtends=new ArrayList<FCountRecordExtend>();
 		FVip fVip=fVipProvider.selectByPrimaryKey(men.getfVipId());

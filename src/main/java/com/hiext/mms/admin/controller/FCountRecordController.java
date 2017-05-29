@@ -91,10 +91,10 @@ public class FCountRecordController extends BaseController {
 	}
 	@ApiOperation(value="会员卡钱消费记录",httpMethod="POST")
 	@PostMapping(value="/detil")
-	public Object detil(ModelMap modelMap,@RequestBody String Tel){
+	public Object detil(ModelMap modelMap,String Tel){
 		if(Tel!=null){
 			Example example = new Example(FMember.class);
-			example.createCriteria().andEqualTo("Tel", Tel).andCondition("datalevel<> 2");
+			example.createCriteria().andEqualTo("tel", Tel).andCondition("datalevel<> 2");
 			List<FMember> fmen=fMemberProvider.selectAllByExample(example);
 			if(fmen.size()>0){
 				FMember fMember = fmen.get(0);

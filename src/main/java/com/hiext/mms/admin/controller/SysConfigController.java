@@ -7,6 +7,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hiext.mms.admin.model.FCategory;
@@ -49,7 +50,7 @@ public class SysConfigController extends BaseController{
 	}
 	@ApiOperation(value = "根据等级ID查询", httpMethod = "POST")
 	@PostMapping(value = "/queryVip")
-	public Object queryOne(ModelMap modelMap,@RequestBody Long id) {
+	public Object queryOne(ModelMap modelMap,@RequestParam("id")Long id) {
 		return setModelMap(modelMap, HttpCode.OK, vipService.queryOne(id));
 	}
 	@ApiOperation(value = "新增会员等级", httpMethod = "POST")
@@ -82,7 +83,7 @@ public class SysConfigController extends BaseController{
 	}
 	@ApiOperation(value = "删除会员等级", httpMethod = "POST")
 	@PostMapping(value = "/vipdel")
-	public Object del(ModelMap modelMap,@RequestBody Long id) {
+	public Object del(ModelMap modelMap, Long id) {
 		vipService.delVip(id);
 		return setModelMap(modelMap, HttpCode.OK, "删除成功");
 	}

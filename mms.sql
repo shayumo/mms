@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-05-07 18:58:46
+Date: 2017-05-29 10:36:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -52,11 +52,18 @@ CREATE TABLE `f_count_record` (
   `CreateDate` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建日期',
   `DataLevel` tinyint(1) unsigned zerofill DEFAULT '0' COMMENT '数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='金额表 金额记录';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='金额表 金额记录';
 
 -- ----------------------------
 -- Records of f_count_record
 -- ----------------------------
+INSERT INTO `f_count_record` VALUES ('1', '1', '0', '100', null, null, '1', '2', '妮子', '2017-05-21 20:57:42', '0');
+INSERT INTO `f_count_record` VALUES ('2', '1', '0', '200', null, null, null, '2', '妮子', '2017-05-21 21:40:22', '0');
+INSERT INTO `f_count_record` VALUES ('3', '1', '1', '160', '0', null, null, '2', '妮子', '2017-05-21 21:08:00', '0');
+INSERT INTO `f_count_record` VALUES ('4', '1', '0', '200', null, null, null, '2', '妮子', '2017-05-21 21:24:00', '0');
+INSERT INTO `f_count_record` VALUES ('5', '1', '1', '160', '0', null, null, '2', '妮子', '2017-05-21 21:38:52', '0');
+INSERT INTO `f_count_record` VALUES ('6', '1', '1', '80', '1', '80', null, '1', '管理员', '2017-05-29 00:13:15', '0');
+INSERT INTO `f_count_record` VALUES ('7', '1', '1', '80', '0', null, null, '1', '管理员', '2017-05-29 00:44:07', '0');
 
 -- ----------------------------
 -- Table structure for f_member
@@ -79,11 +86,14 @@ CREATE TABLE `f_member` (
   `CreateDate` datetime DEFAULT NULL COMMENT '创建日期',
   `DataLevel` tinyint(1) unsigned zerofill DEFAULT '0' COMMENT '数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员 会员信息';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='会员 会员信息';
 
 -- ----------------------------
 -- Records of f_member
 -- ----------------------------
+INSERT INTO `f_member` VALUES ('1', '张望', '1', '15225300544', '2017-05-20 20:02:42', '13300', '2017-05-20 20:02:50', '100', '1', '普通会员', '480', '1', '管理员', '2017-05-20 20:03:11', '0');
+INSERT INTO `f_member` VALUES ('2', '张飞', '1', '18812345678', '2017-05-20 08:00:00', null, null, null, '1', '普通会员', null, '1', '管理员', null, '0');
+INSERT INTO `f_member` VALUES ('3', '张三', '1', '1391234567', '2017-05-20 08:00:00', null, null, null, '1', '普通会员', null, '1', '管理员', null, '1');
 
 -- ----------------------------
 -- Table structure for f_point_record
@@ -102,11 +112,15 @@ CREATE TABLE `f_point_record` (
   `CreateDate` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建日期',
   `DataLevel` bigint(1) unsigned zerofill DEFAULT '0' COMMENT '数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='积分表 会员积分记录表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='积分表 会员积分记录表';
 
 -- ----------------------------
 -- Records of f_point_record
 -- ----------------------------
+INSERT INTO `f_point_record` VALUES ('1', '1', '0', '160', null, null, null, '2', '妮子', '2017-05-21 21:40:00', '0');
+INSERT INTO `f_point_record` VALUES ('2', '1', '0', '160', null, null, null, '2', '妮子', '2017-05-21 21:40:02', '0');
+INSERT INTO `f_point_record` VALUES ('3', '1', '0', '80', null, null, null, '1', '管理员', '2017-05-29 00:13:14', '0');
+INSERT INTO `f_point_record` VALUES ('4', '1', '0', '80', null, null, null, '1', '管理员', '2017-05-29 00:44:06', '0');
 
 -- ----------------------------
 -- Table structure for f_product
@@ -143,11 +157,15 @@ CREATE TABLE `f_user_wages` (
   `CreateDate` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建日期',
   `DataLevel` bigint(11) DEFAULT NULL COMMENT '数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='员工工资 员工工资表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='员工工资 员工工资表';
 
 -- ----------------------------
 -- Records of f_user_wages
 -- ----------------------------
+INSERT INTO `f_user_wages` VALUES ('1', '2', '4.8', '2', null, '2017-05-21 21:12:52', '0');
+INSERT INTO `f_user_wages` VALUES ('2', '2', '4.8', '2', null, '2017-05-21 21:38:52', '0');
+INSERT INTO `f_user_wages` VALUES ('3', '1', '2.4', '1', null, '2017-05-29 00:13:14', '0');
+INSERT INTO `f_user_wages` VALUES ('4', '1', '2.4', '1', null, '2017-05-29 00:44:06', '0');
 
 -- ----------------------------
 -- Table structure for f_vip
@@ -164,12 +182,14 @@ CREATE TABLE `f_vip` (
   `CreateDate` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建日期',
   `DataLevel` tinyint(1) unsigned zerofill DEFAULT '0' COMMENT '数据级别 0正常 1审核中 2被否决 -1已删除 -2草稿',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of f_vip
 -- ----------------------------
-INSERT INTO `f_vip` VALUES ('1', '高级会员', '测试', '50', '50', '1', '管理员', '2017-05-07 18:57:50', '0');
+INSERT INTO `f_vip` VALUES ('1', '普通会员', '测试', '80', '1', '1', '管理员', '2017-05-29 10:34:05', '0');
+INSERT INTO `f_vip` VALUES ('2', '高级会员', '测试', '70', '2', '1', '管理员', '2017-05-29 10:34:28', '0');
+INSERT INTO `f_vip` VALUES ('3', '至尊会员', '测试', '60', '3', '1', '管理员', '2017-05-29 10:35:08', '0');
 
 -- ----------------------------
 -- Table structure for Sys_Menu

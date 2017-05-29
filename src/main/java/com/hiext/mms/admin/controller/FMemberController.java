@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hiext.mms.admin.model.FMember;
 import com.hiext.mms.admin.provider.FMemberProvider;
+import com.hiext.mms.admin.provider.FVipProvider;
 import com.hiext.mms.core.HttpCode;
 import com.hiext.mms.core.base.controller.BaseController;
 
@@ -29,6 +30,8 @@ import tk.mybatis.mapper.entity.Example;
 public class FMemberController extends BaseController {
 	@Autowired
 	private FMemberProvider fMemberProvider;
+	@Autowired
+	private FVipProvider fVipProvider;
 	
 	@ApiOperation(value = "所有会员", httpMethod = "POST")
 	@PostMapping(value = "/list")
@@ -45,8 +48,12 @@ public class FMemberController extends BaseController {
 		if(user !=null){
 			user.setDatalevel(0);
 			user.setCreatorname(getCurrUser().getName());
+			user.setfVipName(fVipProvider.selectByPrimaryKey(user.getfVipId()).getName());
 			user.setCreatorid(getCurrUser().getId());
 			fMemberProvider.insert(user);
+			Long st=user.getId()+1000;
+			user.setCardNo(st.toString());
+			fMemberProvider.update(user);
 			return setMap(HttpCode.OK);
 		}
 		return setSuccessMap("请填写用户信息");
@@ -75,13 +82,13 @@ public class FMemberController extends BaseController {
 	 */
 	@ApiOperation(value = "查询会员", httpMethod = "POST")
 	@PostMapping(value = "/queryOne")
-	public Object query(ModelMap modelMap,@RequestBody Long id){
+	public Object query(ModelMap modelMap,Long id){
 		modelMap.clear();
 		return setModelMap(modelMap, HttpCode.OK, fMemberProvider.selectByPrimaryKey(id));
 	}
 	@ApiOperation(value = "根据会员卡号查询会员", httpMethod = "POST")
 	@PostMapping(value = "/queryCard")
-	public Object queryCardID(ModelMap modelMap, String tel){
+	public Object queryCardID(ModelMap modelMap,String tel){
 		modelMap.clear();
 		Example example = new Example(FMember.class);
 		example.createCriteria().andLike("tel", tel).andCondition("datalevel<> 2");
@@ -96,7 +103,7 @@ public class FMemberController extends BaseController {
 	 */
 	@ApiOperation(value = "删除会员", httpMethod = "POST")
 	@PostMapping(value = "/del")
-	public Object del(ModelMap modelMap, Long id){
+	public Object del(ModelMap modelMap,Long id){
 		FMember fMember = new FMember();
 		fMember.setId(id);
 		fMember.setDatalevel(1);

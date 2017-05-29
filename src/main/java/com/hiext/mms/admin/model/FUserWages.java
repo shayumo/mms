@@ -6,6 +6,8 @@ import javax.persistence.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Table(name = "f_user_wages")
 public class FUserWages implements Serializable {
     /**
@@ -43,7 +45,8 @@ public class FUserWages implements Serializable {
      * 创建日期
      */
     @Column(name = "CreateDate")
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8") 
     private Date createdate;
 
     /**
