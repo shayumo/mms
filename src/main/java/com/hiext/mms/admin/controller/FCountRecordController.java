@@ -3,6 +3,7 @@ package com.hiext.mms.admin.controller;
 import com.hiext.mms.admin.model.FCountRecord;
 import com.hiext.mms.admin.model.FMember;
 import com.hiext.mms.admin.model.extend.FCountRecordExtend;
+import com.hiext.mms.admin.provider.FCountRecordProvider;
 import com.hiext.mms.admin.provider.FMemberProvider;
 import com.hiext.mms.admin.sevice.FCountRecordService;
 import com.hiext.mms.core.HttpCode;
@@ -35,6 +36,8 @@ public class FCountRecordController extends BaseController {
 	private FCountRecordService fCountRecordService;
 	@Autowired
 	private FMemberProvider fMemberProvider;
+	@Autowired
+	private FCountRecordProvider fCountRecordProvider;
 	
 	/**
 	 * 会员充值 
@@ -106,5 +109,17 @@ public class FCountRecordController extends BaseController {
 		}
 		
 		return setMap(HttpCode.BAD_REQUEST,"请求失败");
+	}
+	@ApiOperation(value="会员卡充值记录",httpMethod="POST")
+	@PostMapping(value="/chongzhi")
+	public Object chongzhidetil(ModelMap modelMap,Long fMenId){
+		if(fMenId!=null){
+			Example example = new Example(FCountRecord.class);
+			example.createCriteria().andEqualTo("fMemberId", fMenId).andCondition("datalevel<>2 and count_type=0");
+			List<FCountRecord> counts=fCountRecordProvider.selectAllByExample(example);
+				return setMap(HttpCode.OK,counts);
+			}else{
+				return setMap(HttpCode.BAD_REQUEST,"请求失败");
+			}
 	}
 }

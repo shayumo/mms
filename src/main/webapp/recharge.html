@@ -63,7 +63,7 @@
 				<label class="col-sm-2 control-label">充值金额 </label>
 				<div class="col-sm-10">
 					<div class="input-group m-b">
-						<span class="input-group-addon">&yen;</span> <input type="text"
+						<span class="input-group-addon">&yen;</span> <input type="text" id="chongzhi"
 							class="form-control"> <span class="input-group-addon">.00</span>
 					</div>
 				</div>
@@ -72,7 +72,7 @@
 				<label class="col-sm-2 control-label">赠送金额 </label>
 				<div class="col-sm-10">
 					<div class="input-group m-b">
-						<span class="input-group-addon">&yen;</span> <input type="text"
+						<span class="input-group-addon">&yen;</span> <input type="text" id="song"
 							class="form-control"> <span class="input-group-addon">.00</span>
 					</div>
 				</div>
@@ -80,7 +80,7 @@
 
 			<div class="form-group">
 				<div class="col-sm-4 col-sm-offset-2">
-					<button class="btn btn-primary" type="button">充值</button>
+					<button id="ch" class="btn btn-primary" type="button">充值</button>
 					<button class="btn btn-white" type="button">取消</button>
 				</div>
 			</div>
@@ -100,24 +100,25 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th>支付金额</th>
-							<th>赠送金额</th>
+							<th>充值金额</th>
 							<th>支付时间</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
-							<td>18848956830</td>
-							<td>张妮</td>
-							<td>7.7</td>
-						</tr>
+					<tbody id="list">
 					</tbody>
 				</table>
 			</div>
 
 		</div>
 	</div>
-
+	<script id="listTemp" type="text/html">
+{{each data as value i}}
+<tr>
+    <td>{{value.sum}}</td>
+	<td>{{value.createdate}}</td>
+</tr>
+{{/each}}
+</script>
 	<script src="js/jquery.min.js?v=2.1.4"></script>
 	<script src="js/bootstrap.min.js?v=3.3.6"></script>
 	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
@@ -128,6 +129,8 @@
 	<script src="js/plugins/pace/pace.min.js"></script>
 	<script src="js/content.min.js?v=1.0.0"></script>
 	<script src="js/plugins/iCheck/icheck.min.js"></script>
+	<script type="text/javascript" src="js/template.js"></script>
+	<script src="mms/recharge.js"></script>
 </body>
 
 </html>
