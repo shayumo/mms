@@ -68,7 +68,7 @@ public class FCountRecord implements Serializable {
      * 创建日期
      */
     @Column(name = "CreateDate")
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8") 
     private Date createdate;
 
