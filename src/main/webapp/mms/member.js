@@ -231,6 +231,9 @@ function searchByNo(tel){
 
 function searchData(data){
 	
+	
+	 $("#data").empty();
+	
 	var sex="";
 	var rq="";
 	var level="";
