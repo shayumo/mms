@@ -162,7 +162,7 @@ public class FCountRecordServiceImpl implements FCountRecordService {
 	@Override
 	public List<FCountRecordExtend> queryByMenid(FMember men) {
 		Example example = new Example(FCountRecord.class);
-		example.createCriteria().andCondition("datalevel<>2").andEqualTo("f_member_id", men.getId());
+		example.createCriteria().andCondition("datalevel<>2").andEqualTo("fMemberId", men.getId()).andCondition("count_type=1");
 		List<FCountRecord> fCountRecords=fCountRecordProvider.selectAllByExample(example);
 		List<FCountRecordExtend> fExtends=new ArrayList<FCountRecordExtend>();
 		FVip fVip=fVipProvider.selectByPrimaryKey(men.getfVipId());
