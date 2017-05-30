@@ -68,13 +68,13 @@ public class SysUserController extends BaseController {
 	
 	@ApiOperation(value = "查询员工", httpMethod = "POST")
 	@PostMapping(value = "/queryOne")
-	public Object query(ModelMap modelMap,@RequestBody Long id){
+	public Object query(ModelMap modelMap,Long id){
 		return setModelMap(modelMap, HttpCode.OK, sysUserProvider.selectByPrimaryKey(id));
 	}
 	
 	@ApiOperation(value = "删除员工", httpMethod = "POST")
 	@PostMapping(value = "/del")
-	public Object del(ModelMap modelMap,@RequestBody Long id){
+	public Object del(ModelMap modelMap,Long id){
 		SysUser sysUser = new SysUser();
 		sysUser.setDatalevel(1);
 		sysUserProvider.delete(sysUser);

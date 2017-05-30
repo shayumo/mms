@@ -83,7 +83,7 @@ public class SysConfigController extends BaseController{
 	}
 	@ApiOperation(value = "删除会员等级", httpMethod = "POST")
 	@PostMapping(value = "/vipdel")
-	public Object del(ModelMap modelMap, Long id) {
+	public Object del(ModelMap modelMap,@RequestParam("id")Long id) {
 		vipService.delVip(id);
 		return setModelMap(modelMap, HttpCode.OK, "删除成功");
 	}
@@ -97,7 +97,7 @@ public class SysConfigController extends BaseController{
 	}
 	@ApiOperation(value = "根据分类ID查询", httpMethod = "POST")
 	@PostMapping(value = "/queryCategory")
-	public Object queryOneCa(ModelMap modelMap,@RequestBody Long id) {
+	public Object queryOneCa(ModelMap modelMap,@RequestParam("id")Long id) {
 		return setModelMap(modelMap, HttpCode.OK, fProductProvider.selectByPrimaryKey(id));
 	}
 	@ApiOperation(value = "新增产品分类", httpMethod = "POST")
@@ -116,7 +116,7 @@ public class SysConfigController extends BaseController{
 	}
 	@ApiOperation(value = "删除产品分类", httpMethod = "POST")
 	@PostMapping(value = "/delCategory")
-	public Object delCata(ModelMap modelMap,@RequestBody Long id) {
+	public Object delCata(ModelMap modelMap,@RequestParam("id")Long id) {
 		FCategory category = new FCategory();
 		category.setId(id);
 		category.setDatalevel(1);
@@ -142,7 +142,7 @@ public class SysConfigController extends BaseController{
 	}
 	@ApiOperation(value = "根据产品ID查询", httpMethod = "POST")
 	@PostMapping(value = "/queryPro")
-	public Object queryOnePro(ModelMap modelMap,@RequestBody Long id) {
+	public Object queryOnePro(ModelMap modelMap,@RequestParam("id")Long id) {
 		return setModelMap(modelMap, HttpCode.OK, fProductProvider.selectByPrimaryKey(id));
 	}
 	@ApiOperation(value = "新增产品", httpMethod = "POST")
@@ -161,7 +161,7 @@ public class SysConfigController extends BaseController{
 	}
 	@ApiOperation(value = "删除产品", httpMethod = "POST")
 	@PostMapping(value = "/delPro")
-	public Object delPro(ModelMap modelMap,@RequestBody Long id) {
+	public Object delPro(ModelMap modelMap,@RequestParam("id")Long id) {
 		FProduct category = new FProduct();
 		category.setId(id);
 		category.setDatalevel(1L);
