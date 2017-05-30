@@ -53,7 +53,7 @@
     <select id="hytj" resultMap="BaseResultMap1">
        SELECT 
     COUNT(1) s_qty,
-    0 s_amt,
+     (SELECT SUM(jinge) FROM f_count_record  where count_type=1) s_amt,
     SUM(card_monery) s_ye 
   FROM
     f_member 

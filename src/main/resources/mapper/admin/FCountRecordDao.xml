@@ -17,4 +17,55 @@
     <result column="CreateDate" jdbcType="TIMESTAMP" property="createdate" />
     <result column="DataLevel" jdbcType="INTEGER" property="datalevel" />
   </resultMap>
+    <resultMap id="BaseResultMap1" type="com.hiext.mms.admin.model.extend.FCountRecordExtend">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="f_member_id" jdbcType="BIGINT" property="fMemberId" />
+    <result column="count_type" jdbcType="DECIMAL" property="countType" />
+    <result column="jinge" jdbcType="DOUBLE" property="sum" />
+    <result column="pay_type" jdbcType="DECIMAL" property="payType" />
+    <result column="pay_monery" jdbcType="DOUBLE" property="payMonery" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="CreatorId" jdbcType="BIGINT" property="creatorid" />
+    <result column="CreatorName" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="DataLevel" jdbcType="INTEGER" property="datalevel" />
+    <result column="s_amt" jdbcType="DOUBLE" property="s_amt" />
+    <result column="s_yezf" jdbcType="DOUBLE" property="s_yezf" />
+    <result column="s_xjzf" jdbcType="DOUBLE" property="s_xjzf" />
+    <result column="s_xfzcs" jdbcType="DOUBLE" property="s_xfzcs" />
+  </resultMap>
+  
+    <select id="xftj" resultMap="BaseResultMap1">
+      SELECT 
+  SUM(s_amt) s_amt,
+  SUM(yezf) s_yezf,
+  SUM(xjzf) s_xjzf,
+  SUM(xfcs) s_xfzcs 
+FROM
+  (SELECT 
+    SUM(jinge) s_amt,
+    SUM(jinge) yezf,
+    0 xjzf,
+    COUNT(*) xfcs 
+  FROM
+    f_count_record 
+  WHERE count_type = 1 
+    AND datalevel = 0 
+    AND pay_type = 1 
+  UNION
+  ALL 
+  SELECT 
+    SUM(jinge) s_amt,
+    0 yezf,
+    SUM(jinge) xjzf,
+    COUNT(*) xfcs 
+  FROM
+    f_count_record 
+  WHERE count_type = 1 
+    AND datalevel = 0 
+    AND pay_type = 0) t 
+    </select>
 </mapper>

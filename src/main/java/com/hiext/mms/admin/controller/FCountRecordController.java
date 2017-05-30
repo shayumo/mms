@@ -1,5 +1,14 @@
 package com.hiext.mms.admin.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.hiext.mms.admin.model.FCountRecord;
 import com.hiext.mms.admin.model.FMember;
 import com.hiext.mms.admin.model.extend.FCountRecordExtend;
@@ -12,16 +21,6 @@ import com.hiext.mms.core.base.controller.BaseController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import tk.mybatis.mapper.entity.Example;
-
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 
@@ -122,4 +121,12 @@ public class FCountRecordController extends BaseController {
 				return setMap(HttpCode.BAD_REQUEST,"请求失败");
 			}
 	}
+	@ApiOperation(value = "消費统计", httpMethod = "POST")
+	@PostMapping(value = "/xftj")
+	public Object xftj(ModelMap modelMap){
+	
+		FCountRecordExtend extend= fCountRecordProvider.xftj();
+		return setModelMap(modelMap, HttpCode.OK, extend);
+	}
+	
 }

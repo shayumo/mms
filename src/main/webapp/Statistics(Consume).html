@@ -38,10 +38,10 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>1</td>
-							<td>张三</td>
-							<td>男</td>
-							<td>23</td>
+							<td id="s_amt"></td>
+							<td id="s_yezf"></td>
+							<td id="s_xjzf"></td>
+							<td id="s_xfzcs"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -55,11 +55,14 @@
 		<script src="js/demo/peity-demo.min.js"></script>
 		<!--隐藏内容框-->
 		<script src="js/content.min.js?v=1.0.0"></script>
+		<script src="mms/xftj.js"></script>
 		<script>$(document).ready(function() {
 	$(".i-checks").iCheck({
 		checkboxClass: "icheckbox_square-green",
 		radioClass: "iradio_square-green",
 	})
+	
+	getXftj();
 });</script>
 		<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
 	</body>
