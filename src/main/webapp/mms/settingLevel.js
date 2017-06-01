@@ -1,3 +1,34 @@
+var listModule = (function() {
+	var getdata = function() {
+		$.ajax({
+			type : "post",
+			url : "config/viplist",
+			dataType : "json",
+			success : function(data) {
+				console.log(data);
+				initTable(data);
+			},
+		});
+	}
+	// 初始化话table
+	var initTable = function(data) {
+		var listdata = {
+			data : data.data
+		};
+		var html = template('listTemp', listdata);
+		// console.log(html);
+		document.getElementById('list').innerHTML = html;
+	}
+	return {
+		getdata : getdata,
+	};
+})();
+$(document).ready(function() {
+	listModule.getdata();
+});
+
+//添加等级
+
 $("#save").click(function() {
 	var vip = {
 		id : $("#viplevel").val(),
@@ -19,10 +50,11 @@ $("#save").click(function() {
 				// location.href = 'index.html';
 				alert('成功!');
 				$("#form1").Reset();
+				window.location.href="settingLevel.html";
 			} else {
 				alert('保存失败!');
 			}
-		},
+		}, 
 		error : function() {
 			alert("errr");
 		}

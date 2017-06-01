@@ -14,99 +14,26 @@
 	</head>
 
 	<body>
+		<button class="btn btn-primary" id="addEmp">增加</button>
+		<button class="btn btn-primary" id="delete">删除</button>
+		<button class="btn btn-primary" id="update">修改</button>
 		<div class="jqGrid_wrapper">
 			<table id="table_list_2">
-
 			</table>
 			<div id="pager_list_2">
 
 			</div>
 		</div>
-
 		<script src="js/jquery.min.js?v=2.1.4"></script>
 		<script src="js/bootstrap.min.js?v=3.3.6"></script>
 		<script src="js/plugins/peity/jquery.peity.min.js"></script>
 		<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
 		<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
 		<script src="js/content.min.js?v=1.0.0"></script>
+		<script src="mms/settingEmp.js"></script>
 		<script>
 			$(document).ready(function() {
 				$.jgrid.defaults.styleUI = "Bootstrap";
-				var mydata = [];
-				//      $("#table_list_1").jqGrid({data:mydata,datatype:"local",height:250,autowidth:true,shrinkToFit:true,rowNum:14,rowList:[10,20,30],colNames:["序号","日期","客户","金额","运费","总额","备注"],
-				//      colModel:[{name:"id",index:"id",width:60,sorttype:"int"},{name:"invdate",index:"invdate",width:90,sorttype:"date",formatter:"date"},{name:"name",index:"name",width:100},{name:"amount",index:"amount",width:80,align:"right",sorttype:"float",formatter:"number"},
-				//      {name:"tax",index:"tax",width:80,align:"right",sorttype:"float"},{name:"total",index:"total",width:80,align:"right",sorttype:"float"},{name:"note",index:"note",width:150,sortable:false}],pager:"#pager_list_1",viewrecords:true,caption:"jqGrid 示例1",hidegrid:false});
-				$("#table_list_2").jqGrid({
-					data: mydata,
-					datatype: "local",
-					height: 350,
-					autowidth: true,
-					shrinkToFit: true,
-					rowNum: 20,
-					rowList: [10, 20, 30],
-					colNames: ["编号", "姓名", "性别", "登录密码","电话", "备注", "工资"],
-					colModel: [{
-						name: "id",
-						index: "id",
-						editable: false,
-						width: 60,
-						sorttype: "int",
-						search: true
-					}, {
-						name: "name",
-						index: "name",
-						editable: true,
-						width: 60,
-						sorttype: "date"
-					}, {
-						name: "sex",
-						index: "sex",
-						editable: true,
-						width: 40
-					}, {
-						name: "pwd",
-						index: "pwd",
-						editable: true,
-						width: 40
-					}, {
-						name: "tel",
-						index: "tel",
-						editable: true,
-						width: 40
-					}, {
-						name: "remark",
-						index: "remark",
-						editable: true,
-						width: 80,
-						align: "right",
-						sorttype: "float",
-					}, {
-						name: "salary",
-						index: "salary",
-						editable: true,
-						width: 80,
-						align: "right",
-						sorttype: "float"
-					}, ],
-					pager: "#pager_list_2",
-					viewrecords: true,
-					caption: "员工列表",
-					add: true,
-					edit: true,
-					addtext: "Add",
-					edittext: "Edit",
-					hidegrid: false
-				});
-				$("#table_list_2").setSelection(4, true);
-				$("#table_list_2").jqGrid("navGrid", "#pager_list_2", {
-					edit: true,
-					add: true,
-					del: true,
-					search: true
-				}, {
-					height: 200,
-					reloadAfterSubmit: true
-				});
 				$(window).bind("resize", function() {
 					var width = $(".jqGrid_wrapper").width();
 					$("#table_list_1").setGridWidth(width);

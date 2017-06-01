@@ -3,12 +3,10 @@ var rec = (function(){
 	var discount=100;
 	//查询信息
 	var queryOne = function(){
-			var jsonData=$("#mobile").val();
 			
 			$.ajax({   
 			    type:"POST", //请求方式  
 			    url:"/mms/fmember/queryCard", //请求路径     
-			    headers:{'content-Type':'application/json'},
 			    dataType:'json',
 			    data:{tel:$("#mobile").val()},
 			    success:function(data){   

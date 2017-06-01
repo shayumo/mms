@@ -1,8 +1,38 @@
+var listModule = (function() {
+	var getdata = function() {
+		$.ajax({
+			type : "post",
+			url : "config/prolist",
+			dataType : "json",
+			success : function(data) {
+				console.log(data);
+				initTable(data);
+			},
+		});
+	}
+	// 初始化话table
+	var initTable = function(data) {
+		var listdata = {
+			data : data.data
+		};
+		var html = template('listTemp', listdata);
+		// console.log(html);
+		document.getElementById('giftList').innerHTML = html;
+	}
+	return {
+		getdata : getdata,
+	};
+})();
+$(document).ready(function() {
+	listModule.getdata();
+});
+
 $("#save").click(function() {
-	var vip = {
-		id : $("#viplevel").val(),
+	var gift = {
+		id:"",
+		name : $("#giftName").val(),
 		point : $("#point").val(),
-		sum : $("#sum").val()
+		num : $("#giftNum").val()
 	};
 	$.ajax({
 		type : "POST", // 请求方式
@@ -10,7 +40,7 @@ $("#save").click(function() {
 		headers : {
 			'content-Type' : 'application/json'
 		},
-		data : JSON.stringify(vip),
+		data : JSON.stringify(gift),
 		dataType : 'json',
 		success : function(data) {
 			if (data.httpCode == "200") {
@@ -19,6 +49,7 @@ $("#save").click(function() {
 				// location.href = 'index.html';
 				alert('成功!');
 				$("#form1").Reset();
+				listModule.getdata();
 			} else {
 				alert('保存失败!');
 			}

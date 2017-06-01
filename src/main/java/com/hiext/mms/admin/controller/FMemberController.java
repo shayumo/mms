@@ -15,6 +15,7 @@ import com.hiext.mms.admin.provider.FMemberProvider;
 import com.hiext.mms.admin.provider.FVipProvider;
 import com.hiext.mms.core.HttpCode;
 import com.hiext.mms.core.base.controller.BaseController;
+import com.hiext.mms.core.util.GetDateTime;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -49,6 +50,7 @@ public class FMemberController extends BaseController {
 		if(user !=null){
 			user.setDatalevel(0);
 			user.setCreatorname(getCurrUser().getName());
+			user.setCardDate(GetDateTime.getNowDate());
 			user.setfVipName(fVipProvider.selectByPrimaryKey(user.getfVipId()).getName());
 			user.setCreatorid(getCurrUser().getId());
 			fMemberProvider.insert(user);
@@ -93,7 +95,7 @@ public class FMemberController extends BaseController {
 	public Object queryCardID(ModelMap modelMap,String tel){
 		modelMap.clear();
 		Example example = new Example(FMember.class);
-		example.createCriteria().andLike("tel", tel).andCondition("datalevel<> 2");
+		example.createCriteria().andEqualTo("tel", tel).andCondition("datalevel<> 2");
 		List<FMember> fmen=fMemberProvider.selectAllByExample(example);
 		return setModelMap(modelMap, HttpCode.OK,fmen);
 	}
