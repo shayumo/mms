@@ -76,6 +76,7 @@ public class SysUserController extends BaseController {
 	@PostMapping(value = "/del")
 	public Object del(ModelMap modelMap,Long id){
 		SysUser sysUser = new SysUser();
+		sysUser.setId(id);
 		sysUser.setDatalevel(1);
 		sysUserProvider.delete(sysUser);
 		return setModelMap(modelMap, HttpCode.OK, "删除成功");

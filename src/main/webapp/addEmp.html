@@ -41,6 +41,13 @@
 		</div>
 		<div class="hr-line-dashed"></div>
 		<div class="form-group">
+			<label class="col-sm-2 control-label">登陆名</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="Account">
+			</div>
+		</div>
+		<div class="hr-line-dashed"></div>
+		<div class="form-group">
 			<label class="col-sm-2 control-label">手机号码</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" id="Empphone">
@@ -97,25 +104,54 @@
 	<script src="js/plugins/jasny/jasny-bootstrap.min.js"></script>
 	<script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
 	<script src="js/plugins/prettyfile/bootstrap-prettyfile.js"></script>
-	<script src="js/plugins/nouslider/jquery.nouislider.min.js"></script>
 	<script src="js/plugins/switchery/switchery.js"></script>
 	<script src="js/plugins/ionRangeSlider/ion.rangeSlider.min.js"></script>
 	<script src="js/plugins/iCheck/icheck.min.js"></script>
 	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
 	<script src="js/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
-	<script src="js/plugins/clockpicker/clockpicker.js"></script>
-	<script src="js/plugins/cropper/cropper.min.js"></script>
-	<script src="js/demo/form-advanced-demo.min.js"></script>
-	<script src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+	<script type="text/javascript">
+	$("#save").click(function() {
+		var Empname = $("#Empname").val();
+		var Account = $("#Account").val();
+		var sex = $('input:radio:checked').val();
+		var Empphone = $("#Empphone").val();
+		var Empaddr = $("#Empaddr").val();
+		var Emppwd = $("#Emppwd").val();
+		var data = {
+			"account":Account,
+			"name" : Empname,
+			"sex" : sex,
+			"phone" : Empphone,
+			"address" : Empaddr,
+			"password" : Emppwd
+		};
+		add(data);
+	})
 
+	function add(data) {
+		$.ajax({
+			type : "POST", // 请求方式
+			url : "sysuser/addUser", // 请求路径
+			headers : {
+				'content-Type' : 'application/json'
+			},
+			dataType : 'json',
+			data : JSON.stringify(data),
+			success : function(data) {
+				console.log(data);
+				if (data.httpCode == "200") {
+					console.log(data.data);
+				} else {
+					// alert("登录失败");
+					showmessage01('登录失败!');
+				}
+			},
+			error : function() {
+				alert("errr");
+			}
+		});
 
-	<script src="mms/settingEmp.js"></script>
-
-	<script>
-		window.onload = function() {
-
-			getVipList();
-		}
+	}
 	</script>
 </body>
 

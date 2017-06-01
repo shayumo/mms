@@ -36,7 +36,15 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label">员工姓名</label>
 			<div class="col-sm-10">
+			<input id="userId" type="hidden"/>
 				<input type="text" class="form-control" id="Empname">
+			</div>
+		</div>
+		<div class="hr-line-dashed"></div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">登陆名</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="Account">
 			</div>
 		</div>
 		<div class="hr-line-dashed"></div>
@@ -78,7 +86,7 @@
 		<div class="hr-line-dashed"></div>
 		<div class="form-group">
 			<div class="col-sm-4 col-sm-offset-2">
-				<input type="button" value="保存" id="updateSave1">
+				<input class="btn btn-white" type="button" value="保存" id="updateSave1">
 				<button class="btn btn-white" onclick="javascript:history.back(-1);">取消</button>
 			</div>
 		</div>
@@ -87,40 +95,94 @@
 
 	<script src="js/jquery.min.js?v=2.1.4"></script>
 	<script src="js/bootstrap.min.js?v=3.3.6"></script>
-	<script src="js/content.min.js?v=1.0.0"></script>
-	<script src="js/plugins/iCheck/icheck.min.js"></script>
-	<script src="js/plugins/layer/laydate/laydate.js"></script>
-	<script src="js/plugins/chosen/chosen.jquery.js"></script>
-	<script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
-	<script src="js/plugins/jsKnob/jquery.knob.js"></script>
-	<script src="js/plugins/clockpicker/clockpicker.js"></script>
-	<script src="js/plugins/jasny/jasny-bootstrap.min.js"></script>
-	<script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
-	<script src="js/plugins/prettyfile/bootstrap-prettyfile.js"></script>
-	<script src="js/plugins/nouslider/jquery.nouislider.min.js"></script>
-	<script src="js/plugins/switchery/switchery.js"></script>
-	<script src="js/plugins/ionRangeSlider/ion.rangeSlider.min.js"></script>
-	<script src="js/plugins/iCheck/icheck.min.js"></script>
-	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-	<script src="js/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
-	<script src="js/plugins/clockpicker/clockpicker.js"></script>
-	<script src="js/plugins/cropper/cropper.min.js"></script>
-	<script src="js/demo/form-advanced-demo.min.js"></script>
-	<script src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
-
-
-	<script src="mms/settingEmp.js"></script>
-
 	<script>
-		window.onload = function() {
+	function selectById(id) {
 
-			getVipList();
+		$.ajax({
+			type : "POST", // 请求方式
+			url : "sysuser/queryOne?id=" + id, // 请求路径
+			headers : {
+				'content-Type' : 'application/json'
+			},
+			dataType : 'json',
+			success : function(data) {
+				if (data.httpCode == "200") {
+					createDataForUpdate(data.data)
+				} else {
+					// alert("登录失败");
+					showmessage01('登录失败!');
+				}
+			},
+			error : function() {
+				alert("errr");
+			}
+		});
 
-			var Request = new UrlSearch(); //实例化
+	}
+	function createDataForUpdate(data) {
+		$("#userId").val(data.id);
+		$("#Empname").val(data.name);
+		$("#Account").val(data.account);
+		$("#Empphone").val(data.phone);
+		$("#Empaddr").val(data.address);
+		$("#Emppwd").val(data.password);
 
-			selectById(Request.id);
+		$("input[name='radioInline']").each(function(index, element) {
 
-		}
+			if ($(this).val() == data.sex) {
+				$(this).prop("checked", true);
+			}
+		});
+	}
+	$(document).ready(function(){
+		 var url = location.search;
+		   if (url.indexOf("?") != -1) {
+		      var str = url.substr(1);
+		      strs = str.split("=");  
+		      selectById(strs[1]);
+		   }
+		$("#updateSave1").click(function(){
+			var id = $("#userId").val();
+			var Empname = $("#Empname").val();
+			var Account = $("#Account").val();
+			var sex = $('input:radio:checked').val();
+			var Empphone = $("#Empphone").val();
+			var Empaddr = $("#Empaddr").val();
+			var Emppwd = $("#Emppwd").val();
+			var data = {
+					"id":id,
+				"account":Account,
+				"name" : Empname,
+				"sex" : sex,
+				"phone" : Empphone,
+				"address" : Empaddr,
+				"password" : Emppwd
+			};
+			$.ajax({
+				type : "POST", // 请求方式
+				url : "sysuser/updateUser", // 请求路径
+				headers : {
+					'content-Type' : 'application/json'
+				},
+				dataType : 'json',
+				data : JSON.stringify(data),
+				success : function(data) {
+					console.log(data);
+					if (data.httpCode == "200") {
+						console.log(data.data);
+						window.location.href='settingEmp.html';
+					} else {
+						// alert("登录失败");
+						showmessage01('登录失败!');
+					}
+				},
+				error : function() {
+					alert("errr");
+				}
+			});
+		})
+		
+	})
 	</script>
 </body>
 

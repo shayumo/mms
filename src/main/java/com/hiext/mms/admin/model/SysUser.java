@@ -34,7 +34,7 @@ public class SysUser implements Serializable {
      * 性别 性别(0:未知;1:男;2:女)
      */
     @Column(name = "Sex")
-    private Boolean sex;
+    private Integer sex;
 
     /**
      * 密码
@@ -179,7 +179,7 @@ public class SysUser implements Serializable {
      *
      * @return Sex - 性别 性别(0:未知;1:男;2:女)
      */
-    public Boolean getSex() {
+    public Integer getSex() {
         return sex;
     }
 
@@ -188,7 +188,7 @@ public class SysUser implements Serializable {
      *
      * @param sex 性别 性别(0:未知;1:男;2:女)
      */
-    public void setSex(Boolean sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 

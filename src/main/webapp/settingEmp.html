@@ -14,7 +14,7 @@
 	</head>
 
 	<body>
-		<button class="btn btn-primary" id="addEmp">增加</button>
+		<button class="btn btn-primary" id="addnewemp">增加</button>
 		<button class="btn btn-primary" id="delete">删除</button>
 		<button class="btn btn-primary" id="update">修改</button>
 		<div class="jqGrid_wrapper">
@@ -34,6 +34,7 @@
 		<script>
 			$(document).ready(function() {
 				$.jgrid.defaults.styleUI = "Bootstrap";
+				getList();
 				$(window).bind("resize", function() {
 					var width = $(".jqGrid_wrapper").width();
 					$("#table_list_1").setGridWidth(width);

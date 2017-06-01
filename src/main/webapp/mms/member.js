@@ -119,7 +119,7 @@ function getVipList(){
 		    	console.log(data); 	
 		    	if(data.httpCode=="200"){
 		    		console.log(data.data);
-		    		
+		    		alert("添加成功");
 		    	}else{
 		    		//alert("登录失败");
 		    		showmessage01('登录失败!');
@@ -437,14 +437,6 @@ $("#updateSave1").click(function() {
 	updateData(data);
 	
 })
-
-
-//function updateSave(){
-//	alert("aaaaaaaaa");
-//	
-//}
-
-
 function createDataForUpdate(data){
 	
 	console.log(data.data);
