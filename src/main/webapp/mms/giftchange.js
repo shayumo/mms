@@ -6,7 +6,6 @@ var gift = (function(){
 			$.ajax({   
 			    type:"POST", //请求方式  
 			    url:"/mms/fmember/queryCard", //请求路径     
-			    headers:{'content-Type':'application/json'},
 			    dataType:'json',
 			    data:{tel:$("#mobile").val()},
 			    success:function(data){   

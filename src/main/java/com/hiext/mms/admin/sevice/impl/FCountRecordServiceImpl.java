@@ -77,6 +77,7 @@ public class FCountRecordServiceImpl implements FCountRecordService {
 			FMember fMember = new FMember();
 			FUserWages fUserWages = new FUserWages();
 			fUserWages.setCreatorid(fCountRecord.getCreatorid());
+			fUserWages.setCreatorname(fCountRecord.getCreatorname());
 			fUserWages.setCreatedate(GetDateTime.getNowDate());
 			fUserWages.setDatalevel(0l);
 			fUserWages.setSysUserId(fCountRecord.getCreatorid());

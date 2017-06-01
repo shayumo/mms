@@ -74,7 +74,7 @@ function createData(data) {
 			"phone" : data[o].phone,
 			"address" : data[o].address,
 			"password" : data[o].password,
-			"salary" : data[o].salary,
+			"salary" : data[o].wages,
 		};
 		mydata.push(v_row);
 	}

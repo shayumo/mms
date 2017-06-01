@@ -13,14 +13,17 @@ var consume = (function(){
 			    success:function(data){   
 			    	//console.log(data); 	
 			    	if(data.httpCode=="200"){
-			    		$("#id").html(data.data[0].id);
-			    		$("#name").html(data.data[0].name);
-			    		$("#tel").html(data.data[0].tel);
-			    		$("#vipId").val(data.data[0].fVipId);
-			    		$("#pointCount").html(data.data[0].fPointSum);
-			    		$("#monery").html(data.data[0].cardMonery);
-			    		$("#vipName").html(data.data[0].fVipName);
-			    		getDiscount();
+			    		if(data.data.size()>0){
+			    			$("#id").html(data.data[0].id);
+				    		$("#name").html(data.data[0].name);
+				    		$("#tel").html(data.data[0].tel);
+				    		$("#vipId").val(data.data[0].fVipId);
+				    		$("#pointCount").html(data.data[0].fPointSum);
+				    		$("#monery").html(data.data[0].cardMonery);
+				    		$("#vipName").html(data.data[0].fVipName);
+				    		getDiscount();
+			    		}
+			    		alert("数据库没有该会员");
 			    	}else{
 			    		showmessage01('登出失败!');
 			    	}

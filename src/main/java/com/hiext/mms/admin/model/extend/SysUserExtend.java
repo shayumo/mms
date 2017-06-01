@@ -13,5 +13,15 @@ public class SysUserExtend extends SysUser {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private Double wages;
 
+	public Double getWages() {
+		return wages;
+	}
+
+	public void setWages(Double wages) {
+		this.wages = wages;
+	}
+	
 }

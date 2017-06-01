@@ -1,6 +1,9 @@
 package com.hiext.mms.admin.controller;
 
+import com.hiext.mms.admin.model.FUserWages;
 import com.hiext.mms.admin.model.SysUser;
+import com.hiext.mms.admin.model.extend.SysUserExtend;
+import com.hiext.mms.admin.provider.FUserWagesProvider;
 import com.hiext.mms.admin.provider.SysUserProvider;
 import com.hiext.mms.admin.sevice.UserService;
 import com.hiext.mms.core.HttpCode;
@@ -8,9 +11,11 @@ import com.hiext.mms.core.base.controller.BaseController;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import tk.mybatis.mapper.entity.Example;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.shiro.authz.annotation.RequiresRoles;
@@ -33,6 +38,8 @@ public class SysUserController extends BaseController {
 	private UserService userService;
 	@Autowired
 	private SysUserProvider sysUserProvider;
+	@Autowired
+	private FUserWagesProvider fUserWagesProvider;
 	
 	@ApiOperation(value = "所有员工", httpMethod = "POST")
 	@PostMapping(value = "/list")
@@ -40,7 +47,36 @@ public class SysUserController extends BaseController {
 		SysUser user = new SysUser();
 		user.setUserType((short) 2);
 		List<SysUser> users=userService.list(user);
-		return setModelMap(modelMap, HttpCode.OK, users);
+		List<SysUserExtend> us = new ArrayList<SysUserExtend>();
+		
+		for (SysUser sysUser : users) {
+			SysUserExtend sysUserEx = new SysUserExtend();
+			sysUserEx.setAccount(sysUser.getAccount());
+			sysUserEx.setAddress(sysUser.getAddress());
+			sysUserEx.setId(sysUser.getId());
+			sysUserEx.setName(sysUser.getName());
+			sysUserEx.setPassword(sysUser.getPassword());
+			sysUserEx.setPhone(sysUser.getPhone());
+			sysUserEx.setSex(sysUser.getSex());
+			sysUserEx.setOrderno(sysUser.getOrderno());
+			sysUserEx.setEmail(sysUser.getEmail());
+			us.add(sysUserEx);
+		}
+		for (SysUserExtend sysUserExtend : us) {
+			double count = 0;
+			Example example = new Example(FUserWages.class);
+			example.createCriteria().andEqualTo("sysUserId", sysUserExtend.getId());
+			List<FUserWages> f=fUserWagesProvider.selectAllByExample(example);
+			if(f.size()>0){
+				double wages= 0;
+				for (FUserWages fUserWages : f) {
+					wages=((fUserWages.getWages()==null||fUserWages.getWages()==0)?0:fUserWages.getWages());
+					count+=wages;
+				}
+			}
+			sysUserExtend.setWages(count);
+		}
+		return setModelMap(modelMap, HttpCode.OK, us);
 	}
 	@ApiOperation(value="新增用户",httpMethod="POST")
 	@PostMapping(value="/addUser")
