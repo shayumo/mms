@@ -95,7 +95,7 @@ public class FMemberController extends BaseController {
 	public Object queryCardID(ModelMap modelMap,String tel){
 		modelMap.clear();
 		Example example = new Example(FMember.class);
-		example.createCriteria().andEqualTo("tel", tel).andCondition("datalevel<> 2");
+		example.createCriteria().andEqualTo("tel", tel).andCondition("datalevel<> 1");
 		List<FMember> fmen=fMemberProvider.selectAllByExample(example);
 		return setModelMap(modelMap, HttpCode.OK,fmen);
 	}
