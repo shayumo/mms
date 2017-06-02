@@ -13,7 +13,7 @@ var consume = (function(){
 			    success:function(data){   
 			    	//console.log(data); 	
 			    	if(data.httpCode=="200"){
-			    		if(data.data.size()>0){
+			    		if(data.data.length>0){
 			    			$("#id").html(data.data[0].id);
 				    		$("#name").html(data.data[0].name);
 				    		$("#tel").html(data.data[0].tel);
@@ -22,8 +22,9 @@ var consume = (function(){
 				    		$("#monery").html(data.data[0].cardMonery);
 				    		$("#vipName").html(data.data[0].fVipName);
 				    		getDiscount();
+			    		}else{
+			    			alert("数据库没有该会员");
 			    		}
-			    		alert("数据库没有该会员");
 			    	}else{
 			    		showmessage01('登出失败!');
 			    	}
