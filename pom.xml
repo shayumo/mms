@@ -35,8 +35,9 @@
 		<disruptor.version>3.3.4</disruptor.version>
 		<!-- -->
 		<xfire.version>1.2.6</xfire.version>
-		<fastjson.version>1.2.17</fastjson.version>
+		<fastjson.version>1.2.51</fastjson.version>
 		<validator.version>5.1.2.Final</validator.version>
+		<fasterxml.jackson>2.8.11.1</fasterxml.jackson>
 	</properties>
 
 
@@ -202,19 +203,19 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			<version>2.8.3</version>
+			<version>${fasterxml.jackson}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
-			<version>2.8.3</version>
+			<version>${fasterxml.jackson}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.8.3</version>
+			<version>${fasterxml.jackson}</version>
 		</dependency>
 		<!-- springfox Swagger2 依赖 -->
 		<dependency>
